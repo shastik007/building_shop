@@ -1,9 +1,12 @@
 import React from 'react'
 
-const admin_layout = () => {
+
+const AdminLayout = () => {
   return (
-    <div>admin_layout</div>
+    <div>
+      
+    </div>
   )
 }
 
-export default admin_layout
+export default AdminLayout
