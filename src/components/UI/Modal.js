@@ -32,12 +32,12 @@ Modal.defaultProps = {
 }
 
 const StyledBox = styled(Box)`
-   width:80%;
+   width:90%;
    max-height: 561px;
    background: #ffffff;
    position: absolute;
    left: 50%;
-   top: 50%;
+   top: 40%;
    transform: translate(-50%, -50%);
    color: #ffffff;
 `

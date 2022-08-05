@@ -10,6 +10,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import TemporaryDrawer from './Drawer';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import media from '../../utils/helpers/media';
+import OrderModal from '../../components/user/OrderModal';
 
 
 
@@ -54,7 +55,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
+ const [isOpenModal,setIsOpenModal] = React.useState(false)
 
+ const toggleModal = () => {
+   setIsOpenModal(prev => !prev)
+ }
   return (
     <Box sx={{ flexGrow: 1,marginBottom:2,backgroundColor:'orange' }}>
       <AppBar position="fixed">
@@ -76,6 +81,7 @@ export default function Header() {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={toggleModal}
             >
               <Badge badgeContent={17} color="error">
                 <ShoppingCartIcon />
@@ -84,6 +90,7 @@ export default function Header() {
           </Box>
         </Toolbar>
       </AppBar>
+      <OrderModal onClose={toggleModal} isOpen={isOpenModal}/>
     </Box>
   );
 }

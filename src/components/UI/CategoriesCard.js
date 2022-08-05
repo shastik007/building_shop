@@ -5,12 +5,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function CategoriesCard({img,title,description,id,onOpenCategory}) {
+export default function CategoriesCard({img,title,description,id,onOpenCategory,category}) {
   return (
     <Card sx={{ maxWidth: 345 , height:330}}>
       <CardActionArea>
         <CardMedia
-          onClick={() => onOpenCategory(id)}
+          onClick={() => onOpenCategory(category)}
           component="img"
           height="140"
           image={img}

@@ -1,9 +1,9 @@
 import React from 'react'
 import Modal from '../UI/Modal'
 
-const OrderModal = ({isOpen}) => {
+const OrderModal = ({isOpen,onClose}) => {
   return (
-    <Modal title="Корзина" isOpen={isOpen}>
+    <Modal onClose={onClose} title="Корзина" isOpen={isOpen}>
         hello world
     </Modal>
   )
