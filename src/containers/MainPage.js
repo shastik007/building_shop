@@ -3,15 +3,25 @@ import styled from 'styled-components'
 import CategoriesCard from '../components/UI/CategoriesCard'
 import media from '../utils/helpers/media'
 import { fake_categories } from '../data/fake_data'
-
+import { useNavigate } from 'react-router-dom'
+import CustomSwiper from '../components/UI/Swiper'
 
 const MainPage = () => {
+  const navigate = useNavigate()
+  const openCategory = (categoryId) => {
+      navigate(`${categoryId}`)
+  }
   return (
-    <StyledWrapper>
+   <StyledMain>
+     <h1>Категории</h1>
+      <StyledWrapper>
         {fake_categories.map((categor) => {
-          return <CategoriesCard title={categor.title} description={categor.description} img={categor.image}/>
+          return <CategoriesCard id={categor.id} onOpenCategory={openCategory} title={categor.title} description={categor.description} img={categor.image}/>
         })}
     </StyledWrapper>
+    <h1>Актуальные материалы для вашего дома</h1>
+    <CustomSwiper/>
+   </StyledMain>
   )
 }
 
@@ -36,6 +46,16 @@ const StyledWrapper = styled.div`
   ${
     media.tablet`
       grid-template-columns: 1fr 1fr 1fr;
+    `
+  }
+`
+
+const StyledMain = styled.div`
+ text-align: center;
+  ${
+    media.mobile`
+     margin: 0 auto;
+     text-align:center;
     `
   }
 `

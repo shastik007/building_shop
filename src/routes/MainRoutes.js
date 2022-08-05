@@ -8,11 +8,15 @@ const MainRoutes = () => {
    return (
       <Routes>
          <Route path="/" element={<Navigate to="/main"/>}/>
-         <Route path="main" element={
+         <Route path="main/*" element={
          <UserLayout>
              <MainPage/>
          </UserLayout>
         }/>
+        <Route path='main/:category/*' element={
+        <UserLayout>
+          <div>categor</div>
+        </UserLayout>}/>
          <Route path="admin" element={<div>admin</div>}/>
       </Routes>
    )

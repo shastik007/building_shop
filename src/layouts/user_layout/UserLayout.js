@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import styled from 'styled-components'
-
+import Footer from './Footer'
 
 const UserLayout = ({children}) => {
   return (
@@ -9,7 +9,8 @@ const UserLayout = ({children}) => {
       <Header/>
       <StyledBox>
         {children}
-      </StyledBox>      
+      </StyledBox>
+      <Footer/>      
     </div>
   )
 }

@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 
 export default function ShoppCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345,marginBottom:4 }}>
       <CardActionArea>
         <CardMedia
           component="img"

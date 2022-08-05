@@ -5,21 +5,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-export default function CategoriesCard({img,title,description,id}) {
+export default function CategoriesCard({img,title,description,id,onOpenCategory}) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 , height:330}}>
       <CardActionArea>
         <CardMedia
+          onClick={() => onOpenCategory(id)}
           component="img"
           height="140"
           image={img}
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography onClick={() => onOpenCategory(id)} variant="body2" color="text.secondary">
             {description}
           </Typography>
         </CardContent>
