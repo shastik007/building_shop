@@ -12,6 +12,9 @@ export default Footer
 const StyledFooter = styled.footer`
   width:100%;
   height:70px;
-  background-color:blue;
+  background-color:#007aff;
   margin-top: 40px;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
 `

@@ -9,6 +9,8 @@ import Badge from '@mui/material/Badge';
 import SearchIcon from '@mui/icons-material/Search';
 import TemporaryDrawer from './Drawer';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import media from '../../utils/helpers/media';
+
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -46,7 +48,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-      width: '40ch',
+      width: '45ch',
     },
   },
 }));
@@ -57,18 +59,19 @@ export default function Header() {
     <Box sx={{ flexGrow: 1,marginBottom:2,backgroundColor:'orange' }}>
       <AppBar position="fixed">
         <Toolbar>
-           <TemporaryDrawer />
+          <TemporaryDrawer />
               <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+              <SearchIcon/>
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+        
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
@@ -84,3 +87,5 @@ export default function Header() {
     </Box>
   );
 }
+
+

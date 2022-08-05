@@ -1,15 +1,22 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styled from 'styled-components'
 import CategoriesCard from '../components/UI/CategoriesCard'
 import media from '../utils/helpers/media'
 import { fake_categories } from '../data/fake_data'
 import { useNavigate } from 'react-router-dom'
 import CustomSwiper from '../components/UI/Swiper'
+import OrderModal from '../components/user/OrderModal'
+import { fabClasses } from '@mui/material'
 
 const MainPage = () => {
+  const [isOpenModal,setIsOpenModal] = useState(false)
   const navigate = useNavigate()
   const openCategory = (categoryId) => {
       navigate(`${categoryId}`)
+  }
+
+  const toggleModal = () => {
+    setIsOpenModal(prev => !prev)
   }
   return (
    <StyledMain>
@@ -21,6 +28,7 @@ const MainPage = () => {
     </StyledWrapper>
     <h1>Актуальные материалы для вашего дома</h1>
     <CustomSwiper/>
+    <OrderModal isOpen={isOpenModal}/>
    </StyledMain>
   )
 }
@@ -52,6 +60,7 @@ const StyledWrapper = styled.div`
 
 const StyledMain = styled.div`
  text-align: center;
+ padding-bottom: 130px;
   ${
     media.mobile`
      margin: 0 auto;

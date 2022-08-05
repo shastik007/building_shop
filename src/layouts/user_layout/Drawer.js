@@ -50,6 +50,7 @@ const StyledRenderSideBar = styled(Box)`
 
 const StyledBox = styled.div`
    display: block;
+   margin-right: 10px;
 `
 
 

@@ -32,10 +32,9 @@ Modal.defaultProps = {
 }
 
 const StyledBox = styled(Box)`
-   width: 541px;
+   width:80%;
    max-height: 561px;
    background: #ffffff;
-   border-radius: 10px;
    position: absolute;
    left: 50%;
    top: 50%;
@@ -44,11 +43,12 @@ const StyledBox = styled(Box)`
 `
 const ModalTitle = styled(Typography)`
    background: #3772ff;
-   border-radius: 10px 10px 0px 0px;
    height: 68px;
    text-align: center;
    padding-top: 25px;
    box-sizing: border-box;
+   letter-spacing: 0.3rem;
+   font-size: 19px;
 `
 
 const ModalContent = styled(Box)`
