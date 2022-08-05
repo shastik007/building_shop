@@ -2,13 +2,11 @@ import React from 'react'
 import Header from './Header'
 import styled from 'styled-components'
 import Footer from './Footer'
-import SearchBar from './SearchBar'
 
 const UserLayout = ({children}) => {
   return (
     <div>
       <Header/>
-      <SearchBar/>
       <StyledBox>
         {children}
       </StyledBox>

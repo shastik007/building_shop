@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, Navigate } from 'react-router'
+import { Route, Routes } from 'react-router'
 import UserLayout from '../layouts/user_layout/UserLayout'
 import SubCategories from '../containers/SubCategories'
 
