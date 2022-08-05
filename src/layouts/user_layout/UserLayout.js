@@ -19,4 +19,5 @@ export default UserLayout
 const StyledBox = styled.div`
   width: 95%;
   margin: 0 auto;
+  margin-top: 100px;
 `
