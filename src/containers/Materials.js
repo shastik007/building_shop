@@ -1,33 +1,24 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { fake_sub_category } from '../data/fake_sub_category'
-import CategoriesCard from '../components/UI/CategoriesCard'
+import ShoppCard from '../components/UI/Card'
 import styled from 'styled-components'
 import media from '../utils/helpers/media'
-import { useNavigate } from 'react-router-dom'
 
-
-
-const SubCategories = () => {
-  const {category} = useParams()
-  const navigate = useNavigate()
-
-  const openCategory = (id) => {
-      navigate(`${id}`)
-  }
+const Materials = () => {
+    const {id,category} = useParams()
+    const currentMaterials = fake_sub_category[category].sub.find(material => material.id == id)
   return (
-    <StyledWrapper>
-        {fake_sub_category[category].sub.map((category) => {
-            return (
-               <CategoriesCard onOpenCategory={openCategory} category={category.id} img={category.image} title={category.title} />
-            )
-        })}
+    <StyledWrapper>{
+        currentMaterials.materials.map((el) => {
+            return <ShoppCard/>
+        })
+        }
     </StyledWrapper>
   )
 }
 
-export default SubCategories
-
+export default Materials
 
 const StyledWrapper = styled.div`
   width: 100%;

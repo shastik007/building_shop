@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router'
 import UserLayout from '../layouts/user_layout/UserLayout'
 import SubCategories from '../containers/SubCategories'
+import Materials from '../containers/Materials'
 
 
 const SubCategoriesRoute = () => {
@@ -12,11 +13,10 @@ const SubCategoriesRoute = () => {
              <SubCategories/>
          </UserLayout>
         }/>
-        <Route path='main/:category/*' element={
+        <Route path=':id/*' element={
         <UserLayout>
-          <div/>
+          <Materials />
         </UserLayout>}/>
-         <Route path="admin" element={<div>admin</div>}/>
       </Routes>
    )
 }
