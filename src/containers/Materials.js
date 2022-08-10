@@ -15,10 +15,13 @@ const Materials = () => {
     const addMaterial = (material) => {
         dispatch(orderActions.addItem(material))
     }
+    const removeMaterial = (material) => {
+      dispatch(orderActions.removeItem(material))
+    }
   return (
     <StyledWrapper>{
         currentMaterials.materials.map((el) => {
-            return <ShoppCard material={el} onAddMaterial={addMaterial}/>
+            return <ShoppCard onRemoveMaterial={removeMaterial} material={el} onAddMaterial={addMaterial}/>
         })
         }
     </StyledWrapper>

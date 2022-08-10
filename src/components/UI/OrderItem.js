@@ -4,16 +4,17 @@ import AddIcon from '@mui/icons-material/Add';
 import styled from 'styled-components'
 import { IconButton } from '@mui/material';
 
-const OrderItem = ({count,title}) => {
+const OrderItem = ({count,title,onAdd,onRemove,item,price}) => {
   return (
     <StyledOrderItem>
      <Name>{title}</Name>
+     <Price>{price * count} руб</Price>
      <CounterWrapper>
-       <IconButton>
+       <IconButton onClick={() => onRemove(item)}>
         <RemoveIcon/>
        </IconButton>
        <Count>{count}</Count>
-       <IconButton>
+       <IconButton onClick={() => onAdd(item)}>
         <AddIcon/>
        </IconButton>
      </CounterWrapper>
@@ -41,3 +42,5 @@ const CounterWrapper = styled.div`
 const Count = styled.h3``
 
 const Name = styled.h2``
+
+const Price = styled.h2``

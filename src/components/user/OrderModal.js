@@ -4,16 +4,26 @@ import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Button from '../UI/Button'
 import OrderItem from '../UI/OrderItem'
+import { useDispatch } from 'react-redux'
+import { orderActions } from '../../store'
 
 
 const OrderModal = ({isOpen,onClose}) => {
+  const dispatch = useDispatch()
   const { order } = useSelector(store => store.order)
+  const addItem = (item) => {
+    dispatch(orderActions.addItem(item))
+  }
+
+  const removeItem = (item) => {
+    dispatch(orderActions.removeItem(item))
+  }
   return (
     <Modal onClose={onClose} title="Корзина" isOpen={isOpen}>
         {
           order.length > 0 ? order.map((el) => {
             return <StyledItem>
-              <OrderItem count={el.count} title={el.title} />
+              <OrderItem price={el.price} onRemove={removeItem} onAdd={addItem} item={el} count={el.count} title={el.title} />
             </StyledItem>
           }) : <h1>Ваша корзина пуста</h1>
         }
