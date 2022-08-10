@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import React from 'react'
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,8 +15,12 @@ const Footer = () => {
       <StyledNumber>+778 34 782 827</StyledNumber>
       </StyledContactsWrapper>
       <StyledIconsWrapper>
-         <WhatsAppIcon fontSize='large'/>
-         <InstagramIcon fontSize='large'/>
+         <a href='https://api.whatsapp.com/send?phone=996557800019'>
+           <WhatsAppIcon/>
+         </a>
+         <a href='https://www.instagram.com/mapaevvv/'>
+            <InstagramIcon fontSize='large'/>
+         </a>
       </StyledIconsWrapper>
     </StyledFooter>
   )
@@ -43,6 +48,9 @@ const StyledName = styled.h1`
 
 const StyledContactsWrapper = styled.div`
   color: white;
+  & a{
+    text-decoration: none;
+  }
 `
 
 const StyledNumber = styled.p``
@@ -55,4 +63,8 @@ const StyledIconsWrapper = styled.p`
   justify-content: space-between;
   margin-right: 30px;
   color: white;
+`
+
+const StyledLink = styled(Link)`
+ text-decoration: none;
 `

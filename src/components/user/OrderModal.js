@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '../UI/Modal'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
@@ -6,9 +6,11 @@ import Button from '../UI/Button'
 import OrderItem from '../UI/OrderItem'
 import { useDispatch } from 'react-redux'
 import { orderActions } from '../../store'
+import OrderFormModal from './OrderFormModal'
 
 
 const OrderModal = ({isOpen,onClose}) => {
+  const [isOpenModal,setIsOpen] = useState(false)
   const dispatch = useDispatch()
   const { order } = useSelector(store => store.order)
   const addItem = (item) => {
@@ -18,6 +20,10 @@ const OrderModal = ({isOpen,onClose}) => {
   const removeItem = (item) => {
     dispatch(orderActions.removeItem(item))
   }
+
+  const toggleModal = () => setIsOpen(prev => !prev)
+
+  const isDisableButton = order.length > 0 ? false  : true
   return (
     <Modal onClose={onClose} title="Корзина" isOpen={isOpen}>
         {
@@ -28,10 +34,14 @@ const OrderModal = ({isOpen,onClose}) => {
           }) : <h1>Ваша корзина пуста</h1>
         }
         <ModalActionsWrapper>
+        <StyledButtonWrapper>
+            <Button variant="outlined" onClick={onClose}>Отменить</Button>
+          </StyledButtonWrapper>
           <StyledButtonWrapper>
-            <Button>Заказать</Button>
+            <Button disabled={isDisableButton} onClick={toggleModal}>Заказать</Button>
           </StyledButtonWrapper>
         </ModalActionsWrapper>
+        <OrderFormModal onClose={toggleModal} isOpen={isOpenModal}/>
     </Modal>
   )
 }
@@ -50,4 +60,5 @@ const ModalActionsWrapper = styled.div`
 
 const StyledButtonWrapper = styled.div`
   width: 20%;
+  margin-right: 1%;
 `

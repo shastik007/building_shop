@@ -1,9 +1,8 @@
 import { Box, styled, Typography } from '@mui/material'
 import Backdrop from '@mui/material/Backdrop'
 import MuiModal from '@mui/material/Modal'
-import PropTypes from 'prop-types'
 
-function Modal({ children, isOpen, onClose, title }) {
+function Modal({ children, isOpen, onClose, title ,width }) {
    return (
       <MuiModal
          open={isOpen}
@@ -13,7 +12,7 @@ function Modal({ children, isOpen, onClose, title }) {
             timeout: 500,
          }}
       >
-         <StyledBox>
+         <StyledBox width={width}>
             <ModalTitle>{title}</ModalTitle>
             <ModalContent>{children}</ModalContent>
          </StyledBox>
@@ -21,18 +20,9 @@ function Modal({ children, isOpen, onClose, title }) {
    )
 }
 
-Modal.propTypes = {
-   children: PropTypes.string.isRequired,
-   isOpen: PropTypes.bool.isRequired,
-   onClose: PropTypes.func.isRequired,
-   title: PropTypes.string,
-}
-Modal.defaultProps = {
-   title: '',
-}
 
 const StyledBox = styled(Box)`
-   width:90%;
+   width:${({width}) => width || '90%'};
    max-height: 561px;
    background: #ffffff;
    position: absolute;
