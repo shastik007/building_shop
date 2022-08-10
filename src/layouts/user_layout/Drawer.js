@@ -3,6 +3,8 @@ import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
 import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+import { fake_categories } from '../../data/fake_data';
 
 
 
@@ -23,7 +25,11 @@ const TemporaryDrawer = () => {
 
    const renderSideBarList = (anchor) => (
       <StyledRenderSideBar anchor={anchor} role="presentation">
-         hello wrold 
+         <StyledList>
+            {fake_categories.map((categories) => {
+               return <StyledLink to={categories.category}>{categories.title}</StyledLink>
+            })}
+         </StyledList>
       </StyledRenderSideBar>
    )
 
@@ -45,12 +51,26 @@ export default TemporaryDrawer
 
 const StyledRenderSideBar = styled(Box)`
    width: ${({ anchor }) =>
-      anchor === 'top' || anchor === 'bottom' ? 'auto' : '240px'};
+      anchor === 'top' || anchor === 'bottom' ? 'auto' : '260px'};
 `
 
 const StyledBox = styled.div`
    display: block;
    margin-right: 10px;
+`
+const StyledLink = styled(Link)`
+ color: black;
+ font-size: 14px;
+ margin-bottom: 20px;
+ border-bottom: 1px solid black;
+ text-decoration: none;
+`
+
+const StyledList = styled.ul`
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  
 `
 
 

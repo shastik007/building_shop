@@ -5,6 +5,7 @@ import media from '../utils/helpers/media'
 import { fake_categories } from '../data/fake_data'
 import { useNavigate } from 'react-router-dom'
 import CustomSwiper from '../components/UI/Swiper'
+import MainHeader from './MainHeader'
 
 
 const MainPage = () => {
@@ -17,6 +18,7 @@ const MainPage = () => {
   
   return (
    <StyledMain>
+     <MainHeader/>
      <h1>Категории</h1>
       <StyledWrapper>
         {fake_categories.map((categor) => {
@@ -24,7 +26,9 @@ const MainPage = () => {
         })}
     </StyledWrapper>
     <h1>Актуальные материалы для вашего дома</h1>
-    <CustomSwiper/>
+    <StyledSwiperWrapper>
+       <CustomSwiper/>
+    </StyledSwiperWrapper>
    </StyledMain>
   )
 }
@@ -33,12 +37,16 @@ export default MainPage
 
 
 const StyledWrapper = styled.div`
+  box-sizing: border-box;
   width: 100%;
+  padding: 30px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   margin-bottom: 80px;
+  background-color: #C4C4C4;
+  
   ${
     media.mobile`
      display: flex;
@@ -63,4 +71,9 @@ const StyledMain = styled.div`
      text-align:center;
     `
   }
+`
+
+const StyledSwiperWrapper = styled.div`
+  padding: 20px;
+  background-color: #C4C4C4;
 `
