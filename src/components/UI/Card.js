@@ -6,8 +6,11 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import styled from 'styled-components'
 
-export default function ShoppCard() {
+export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
   return (
     <Card sx={{ maxWidth: 345,marginBottom:4 }}>
       <CardActionArea>
@@ -27,15 +30,44 @@ export default function ShoppCard() {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-      <IconButton
+      <StyledActions>
+            <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
             >
                 <ShoppingCartIcon />
             </IconButton>
-      </CardActions>
+            <StyledCounterWrapper>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+              onClick={() => onRemoveMaterial(material)}
+            >
+                <RemoveIcon />
+            </IconButton>
+            <h3>{material?.count}</h3>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+              onClick={() => onAddMaterial(material)}
+            >
+                <AddIcon />
+            </IconButton>
+            </StyledCounterWrapper>
+      </StyledActions>
     </Card>
   );
 }
+
+
+const StyledCounterWrapper = styled.div`
+  display: flex;
+`
+
+const StyledActions = styled(CardActions)`
+  display: flex;
+  justify-content: space-between;
+`

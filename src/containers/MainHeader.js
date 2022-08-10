@@ -101,6 +101,8 @@ const StyledHeaderWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 400px;
-  background-color: #C4C4C4;
+  background-image: url('https://img.freepik.com/free-photo/variety-handy-tools-on-dark-background-labor-day-background-concept_1150-41808.jpg?w=1380&t=st=1660152549~exp=1660153149~hmac=06c4af61f6e0fdceac7e372f2fff61b5320d2d57618bf308dd9df436a520c47b');
+  background-size: cover;
+  background-repeat: no-repeat;
 `
 

@@ -11,6 +11,7 @@ import TemporaryDrawer from './Drawer';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import media from '../../utils/helpers/media';
 import OrderModal from '../../components/user/OrderModal';
+import { useSelector } from 'react-redux';
 
 
 
@@ -56,6 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Header() {
  const [isOpenModal,setIsOpenModal] = React.useState(false)
+ const { order } = useSelector(store => store.order)
 
  const toggleModal = () => {
    setIsOpenModal(prev => !prev)
@@ -83,7 +85,7 @@ export default function Header() {
               color="inherit"
               onClick={toggleModal}
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={order.length} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

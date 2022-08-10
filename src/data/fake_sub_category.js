@@ -12,17 +12,23 @@ export const fake_sub_category = {
                    {
                        title:'Banka',
                        img:Banka,
-                       price:200
+                       price:200,
+                       count:1,
+                       id:'1'
                    },
                    {
                     title:'Banka',
                     img:Banka,
-                    price:200
+                    price:200,
+                    id:'2',
+                    count:1,
                    },
                    {
                     title:'Banka',
                     img:Banka,
-                    price:200
+                    price:200,
+                    id:'3',
+                    count:1,
                    },
                ]
             },

@@ -4,14 +4,21 @@ import { fake_sub_category } from '../data/fake_sub_category'
 import ShoppCard from '../components/UI/Card'
 import styled from 'styled-components'
 import media from '../utils/helpers/media'
+import { useDispatch } from 'react-redux'
+import { orderActions } from '../store'
 
 const Materials = () => {
+    const dispatch = useDispatch()
     const {id,category} = useParams()
     const currentMaterials = fake_sub_category[category].sub.find(material => material.id == id)
+
+    const addMaterial = (material) => {
+        dispatch(orderActions.addItem(material))
+    }
   return (
     <StyledWrapper>{
         currentMaterials.materials.map((el) => {
-            return <ShoppCard/>
+            return <ShoppCard material={el} onAddMaterial={addMaterial}/>
         })
         }
     </StyledWrapper>
