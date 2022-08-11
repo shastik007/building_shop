@@ -1,0 +1,1 @@
+export const baseUrl = 'https://api-backend-service-is.herokuapp.com/api'
