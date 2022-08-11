@@ -1,9 +1,6 @@
 import React from 'react'
-import { Button } from '@mui/material'
 import styled from '@emotion/styled'
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import ReviewsIcon from '@mui/icons-material/Reviews';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import Button from '../components/UI/Button'
 
 const MainHeader = () => {
   return (
@@ -14,34 +11,12 @@ const MainHeader = () => {
             для натурального камня, 
             керамогранита и плитки
           </StyledTitle>
-          <StyledButton>
+          <StyledButtonWrapper>
+            <Button>
               Заказать товар
-          </StyledButton>
-      </StyledLeftBlock>
-      <StyledRightBlock>
-          <StyledList>
-              <StyledItem>
-                  <ContactSupportIcon/>
-                 <ItemText>
-                 Оперативная помощь в выборе
-                 </ItemText>
-              </StyledItem>
-              <StyledItem>
-                  <ReviewsIcon/>
-                  <ItemText>
-                  Рекомендуют более 200 производителей
-                  натурального камня
-                  </ItemText>
-              </StyledItem>
-              <StyledItem>
-              <ReviewsIcon/>
-                  <ItemText>
-                  Рекомендуют более 200 производителей
-                  натурального камня
-                  </ItemText>
-              </StyledItem>
-          </StyledList>
-      </StyledRightBlock>
+            </Button>
+          </StyledButtonWrapper>
+        </StyledLeftBlock>
     </StyledHeaderWrapper>
   )
 }
@@ -51,36 +26,16 @@ export default MainHeader
 
 const StyledTitle = styled.h1`
   color: white;
+  text-shadow: 1px 1px black;
   width: 400px;
   margin: 0 auto;
   margin-bottom: 40px;
 `
 
-const StyledList= styled.ul``
 
-const StyledItem = styled.li`
-  width: 400px;
-  color: white;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`
-
-const StyledButton = styled.button`
+const StyledButtonWrapper = styled.div`
   width: 200px;
-  height: 40px;
-  border-radius: 6px;
-  margin: 0 auto;
-  border: none;
-`
-
-const StyledRightBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
-  height: 100%;
+  
 `
 
 const StyledLeftBlock = styled.div`
@@ -92,13 +47,10 @@ const StyledLeftBlock = styled.div`
   justify-content: center;
 `
 
-const ItemText = styled.h3`
-  margin-left: 20px;
-`
-
 
 const StyledHeaderWrapper = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
   height: 400px;
   background-image: url('https://img.freepik.com/free-photo/variety-handy-tools-on-dark-background-labor-day-background-concept_1150-41808.jpg?w=1380&t=st=1660152549~exp=1660153149~hmac=06c4af61f6e0fdceac7e372f2fff61b5320d2d57618bf308dd9df436a520c47b');

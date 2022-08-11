@@ -5,6 +5,7 @@ import CategoriesCard from '../components/UI/CategoriesCard'
 import styled from 'styled-components'
 import media from '../utils/helpers/media'
 import { useNavigate } from 'react-router-dom'
+import Slider from '../components/user/Slider'
 
 
 
@@ -16,13 +17,16 @@ const SubCategories = () => {
       navigate(`${id}`)
   }
   return (
-    <StyledWrapper>
+    <> 
+    <Slider/>
+      <StyledWrapper>
         {fake_sub_category[category].sub.map((category) => {
             return (
                <CategoriesCard onOpenCategory={openCategory} category={category.id} img={category.image} title={category.title} />
             )
         })}
     </StyledWrapper>
+    </>
   )
 }
 

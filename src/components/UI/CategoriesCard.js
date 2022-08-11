@@ -12,12 +12,12 @@ export default function CategoriesCard({img,title,description,id,onOpenCategory,
         <CardMedia
           onClick={() => onOpenCategory(category)}
           component="img"
-          height="140"
+          height="200"
           image={img}
           alt="green iguana"
         />
         <CardContent>
-          <Typography onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
+          <Typography textAlign="center" onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
             {title}
           </Typography>
           <Typography onClick={() => onOpenCategory(id)} variant="body2" color="text.secondary">

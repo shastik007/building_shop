@@ -23,7 +23,6 @@ const StyledButton = styled(MuiButton)`
    font-weight: 600;
    padding: 11px 24px;
    color: #ffffff;
-   font-family: 'OpenSans-SemiBold';
    &.MuiButton-contained {
       background: #3772ff;
       &:hover {

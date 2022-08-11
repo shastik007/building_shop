@@ -19,12 +19,14 @@ const Materials = () => {
       dispatch(orderActions.removeItem(material))
     }
   return (
+    <>
     <StyledWrapper>{
         currentMaterials.materials.map((el) => {
             return <ShoppCard onRemoveMaterial={removeMaterial} material={el} onAddMaterial={addMaterial}/>
         })
         }
     </StyledWrapper>
+    </>
   )
 }
 
