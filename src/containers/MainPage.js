@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import styled from 'styled-components'
 import CategoriesCard from '../components/UI/CategoriesCard'
 import media from '../utils/helpers/media'
@@ -6,15 +6,19 @@ import { fake_categories } from '../data/fake_data'
 import { useNavigate } from 'react-router-dom'
 import CustomSwiper from '../components/UI/Swiper'
 import MainHeader from './MainHeader'
+import { useDispatch } from 'react-redux'
+import { getAllProducts } from '../store/ProductSlice'
 
 
 const MainPage = () => {
-  
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const openCategory = (category) => {
       navigate(`${category}`)
   }
-
+  useEffect(() => {
+    dispatch(getAllProducts())
+  })
   
   return (
    <StyledMain>
