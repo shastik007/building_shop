@@ -17,16 +17,15 @@ export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
         <CardMedia
           component="img"
           height="140"
-          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxRetOD-CHuxOMDVYFjdHEio-cJzEj4abxmpKrcJhc1QhpzUNlmYTQNnadvcDeH-Dy3Qs&usqp=CAU"
+          image={material?.image}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            {material?.model} {material?.manufacturer}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+           {material?.about}
           </Typography>
         </CardContent>
       </CardActionArea>

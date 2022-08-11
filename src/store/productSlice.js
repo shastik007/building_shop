@@ -6,9 +6,9 @@ export const getAllProducts = createAsyncThunk(
     'products/getAllProducts',
     async (_,{rejectWithValue}) => {
         try {
-            const response = await getAllProductsRequest()
-            console.log(response);
-            return ''
+            console.log('wrok');
+            const {data} = await getAllProductsRequest()
+            return data
          } catch (error) {
             return rejectWithValue(error.message)
          }
@@ -16,8 +16,17 @@ export const getAllProducts = createAsyncThunk(
 )
 
 
-export const productSlice = createSlice({
+const productSlice = createSlice({
     name:'products',
+    initialState:{
+        products:[]
+    },
     reducers:{},
-    extraReducers:{}
+    extraReducers:{
+        [getAllProducts.fulfilled]:(state,{payload}) => {
+            state.products = payload
+        }
+    }
 })
+
+export default productSlice

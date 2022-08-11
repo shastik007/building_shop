@@ -6,13 +6,14 @@ import styled from 'styled-components'
 import media from '../utils/helpers/media'
 import { useNavigate } from 'react-router-dom'
 import Slider from '../components/user/Slider'
-
+import { useSelector } from 'react-redux'
 
 
 const SubCategories = () => {
+  const {products} = useSelector(store => store.products)
   const {category} = useParams()
   const navigate = useNavigate()
-
+  const currentCategory = products.find(product => product.id == category)
   const openCategory = (id) => {
       navigate(`${id}`)
   }
@@ -20,9 +21,9 @@ const SubCategories = () => {
     <> 
     <Slider/>
       <StyledWrapper>
-        {fake_sub_category[category].sub.map((category) => {
+        {currentCategory.nextCategory.map((category) => {
             return (
-               <CategoriesCard onOpenCategory={openCategory} category={category.id} img={category.image} title={category.title} />
+               <CategoriesCard onOpenCategory={openCategory} category={category.id} img={category.image} title={category.name} />
             )
         })}
     </StyledWrapper>

@@ -7,26 +7,30 @@ import { useNavigate } from 'react-router-dom'
 import CustomSwiper from '../components/UI/Swiper'
 import MainHeader from './MainHeader'
 import { useDispatch } from 'react-redux'
-import { getAllProducts } from '../store/ProductSlice'
+import { getAllProducts } from '../store/productSlice'
+import { useSelector } from 'react-redux'
+
 
 
 const MainPage = () => {
+  const {products} = useSelector(store => store.products)
+  console.log(products);
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const openCategory = (category) => {
-      navigate(`${category}`)
+  const openCategory = (categoryId) => {
+      navigate(`${categoryId}`)
   }
   useEffect(() => {
     dispatch(getAllProducts())
-  })
+  },[])
   
   return (
    <StyledMain>
      <MainHeader/>
      <h1>Категории</h1>
       <StyledWrapper>
-        {fake_categories.map((categor) => {
-          return <CategoriesCard category={categor.category} id={categor.id} onOpenCategory={openCategory} title={categor.title} description={categor.description} img={categor.image}/>
+        {products.map((categor) => {
+          return <CategoriesCard category={categor?.id} id={categor?.id} onOpenCategory={openCategory} title={categor?.nameCategory} description={categor?.description} img={categor?.image}/>
         })}
     </StyledWrapper>
     <h1>Актуальные материалы для вашего дома</h1>

@@ -6,11 +6,14 @@ import styled from 'styled-components'
 import media from '../utils/helpers/media'
 import { useDispatch } from 'react-redux'
 import { orderActions } from '../store'
+import { useSelector } from 'react-redux'
 
 const Materials = () => {
+    const {products} = useSelector(store => store.products)
     const dispatch = useDispatch()
     const {id,category} = useParams()
-    const currentMaterials = fake_sub_category[category].sub.find(material => material.id == id)
+    const currentSubCategory = products.find(cat => cat.id == category)
+    const Materials = currentSubCategory.nextCategory.find(el => el.id == id)
 
     const addMaterial = (material) => {
         dispatch(orderActions.addItem(material))
@@ -21,7 +24,7 @@ const Materials = () => {
   return (
     <>
     <StyledWrapper>{
-        currentMaterials.materials.map((el) => {
+        Materials.products.map((el) => {
             return <ShoppCard onRemoveMaterial={removeMaterial} material={el} onAddMaterial={addMaterial}/>
         })
         }

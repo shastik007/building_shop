@@ -9,10 +9,10 @@ const axiosInstance = axios.create({ baseURL, headers })
 
 axiosInstance.interceptors.request.use((config) => {
    const updatedConfig = { ...config }
-   const {
-      auth: { token },
-   } = store.getState()
-   if (token) updatedConfig.headers.Authorization = `Bearer ${token}`
+//    const {
+//       auth: { token },
+//    } = store.getState()
+//    if (token) updatedConfig.headers.Authorization = `Bearer ${token}`
 
    return updatedConfig
 })
