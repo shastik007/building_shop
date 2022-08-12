@@ -5,10 +5,14 @@ import styled from 'styled-components'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import { fake_categories } from '../../data/fake_data';
-
+import LoginModal from '../../containers/LoginModal';
+import Button from '../../components/UI/Button';
 
 
 const TemporaryDrawer = () => {
+   const [isOpenModal,setIsOpenModal] = React.useState(false)
+
+   const toggleModal = () => setIsOpenModal(prev => !prev)
    const [sideBarPosition, setsideBarPosition] = React.useState({
       left: false,
    })
@@ -29,7 +33,9 @@ const TemporaryDrawer = () => {
             {fake_categories.map((categories) => {
                return <StyledLink to={categories.category}>{categories.title}</StyledLink>
             })}
+           <Button onClick={toggleModal}>Войти</Button>
          </StyledList>
+         <LoginModal onClose={toggleModal} isOpen={isOpenModal}/>
       </StyledRenderSideBar>
    )
 

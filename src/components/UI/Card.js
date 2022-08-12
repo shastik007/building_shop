@@ -16,7 +16,7 @@ export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+          height="250"
           image={material?.image}
           alt="green iguana"
         />
