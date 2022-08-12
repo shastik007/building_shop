@@ -23,7 +23,7 @@ export const login = createAsyncThunk(
 
 const authSlice = createSlice({
     name:'auth',
-    initialState:{
+    initialState:localStorageHelper.get(USER_DATA_TOKEN) || {
         role:'',
         token:''
     },

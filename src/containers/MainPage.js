@@ -12,8 +12,10 @@ import { useSelector } from 'react-redux'
 
 
 
+
 const MainPage = () => {
   const {products} = useSelector(store => store.products)
+  const {role} = useSelector(store => store.auth)
   console.log(products);
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -23,6 +25,13 @@ const MainPage = () => {
   useEffect(() => {
     dispatch(getAllProducts())
   },[])
+
+  useEffect(() => {
+    if(role === '[ROLE_ADMIN]'){
+      console.log('navigate');
+       navigate('admin')
+    }
+  },[role])
   
   return (
    <StyledMain>

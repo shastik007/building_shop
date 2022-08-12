@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, Navigate } from 'react-router'
+import { Route, Routes } from 'react-router'
 import UserLayout from '../layouts/user_layout/UserLayout'
 import MainPage from '../containers/MainPage'
 import SubCategoriesRoute from './SubCategoriesRoute'
@@ -8,12 +8,9 @@ import SubCategoriesRoute from './SubCategoriesRoute'
 const MainRoutes = () => {
    return (
       <Routes>
-         <Route path="/" element={<Navigate to="/main"/>}/>
-         <Route path="main/*" element={
-         <UserLayout>
+         <Route path="/" element={<UserLayout>
              <MainPage/>
-         </UserLayout>
-        }/>
+         </UserLayout>}/>
         <Route path='main/:category/*' element={
         <UserLayout>
           <SubCategoriesRoute/>

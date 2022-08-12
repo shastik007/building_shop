@@ -2,18 +2,29 @@ import Modal from "../components/UI/Modal";
 import Input from "../components/UI/Input";
 import Button from "../components/UI/Button";
 import styled from 'styled-components'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../store/authSlice";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginModal = ({isOpen,onClose}) => {
+  const { role } = useSelector(store => store.auth)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [userData,setUserData] = useState({
       email:'',
       password:''
   })
-
+ console.log(role,'token');
+  useEffect(() => {
+    if(role === '[ROLE_ADMIN]'){
+      console.log('navigate');
+       navigate('admin',-1)
+    }
+  },[role])
+  
 
   const changeHandler = (e) => {
       const {name,value} = e.target
