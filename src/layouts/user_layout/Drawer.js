@@ -29,7 +29,7 @@ const TemporaryDrawer = () => {
 
    const toggleModalll = () => {
       toggleModal()
-      renderSideBarList('left',false)
+      toggleDrawer('left', false)
    }
 
    const renderSideBarList = (anchor) => (
@@ -38,7 +38,9 @@ const TemporaryDrawer = () => {
             {fake_categories.map((categories) => {
                return <StyledLink to={categories.category}>{categories.title}</StyledLink>
             })}
-           <Button onClick={toggleModalll}>Войти</Button>
+            <ButtonWrapper>
+            <Button onClick={toggleModalll}>Войти</Button>
+            </ButtonWrapper>
          </StyledList>
          <LoginModal onClose={toggleModal}
        isOpen={isOpenModal}/>
@@ -72,10 +74,12 @@ const StyledBox = styled.div`
 `
 const StyledLink = styled(Link)`
  color: black;
- font-size: 14px;
+ font-size: 16px;
  margin-bottom: 20px;
  border-bottom: 1px solid black;
  text-decoration: none;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-weight: 400;
 `
 
 const StyledList = styled.ul`
@@ -83,6 +87,11 @@ const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
   
+`
+
+const ButtonWrapper = styled.div`
+  width: 60%;
+  height: 40px;
 `
 
 

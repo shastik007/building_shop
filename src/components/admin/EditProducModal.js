@@ -4,11 +4,11 @@ import Input from '../UI/Input'
 import styled from 'styled-components'
 import Button from '../UI/Button'
 import { useDispatch } from 'react-redux'
-import { getAllProducts, saveProduct } from '../../store/productSlice'
+import { getAllProducts, editProduct } from '../../store/productSlice'
 import { useParams } from 'react-router-dom'
 
 
-const AddProductModal = ({isOpen,onClose}) => {
+const EditProductModal = ({isOpen,onClose}) => {
   const dispatch = useDispatch()
   const {id} = useParams()
   const [data,setData] = useState({
@@ -31,7 +31,7 @@ const AddProductModal = ({isOpen,onClose}) => {
   }
 
   const submit = async () => {
-     await dispatch(saveProduct({id,localData:data}))
+     await dispatch(editProduct({id,localData:data}))
      await dispatch(getAllProducts())
      setData({
         manufacturer: "",
@@ -67,7 +67,7 @@ const AddProductModal = ({isOpen,onClose}) => {
   )
 }
 
-export default AddProductModal
+export default EditProductModal
 
 const InputsWrapper = styled.div`
   display: flex;

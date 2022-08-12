@@ -47,8 +47,7 @@ const AdminSubCategories = () => {
 
  
   return (
-    <>
-      <h1>Под категории</h1>
+    <div style={{padding:'10px'}}>
       <Actions>
         <ButtonWrapper>
            <Button onClick={toggleSave}>
@@ -65,7 +64,7 @@ const AdminSubCategories = () => {
     </StyledWrapper>
     <AddSubCategoryModal categoryId={category} isOpen={saveModal} onClose={toggleSave}/>
     <EditSubCategoryModal isOpen={editModal} onClose={toggleEdit}/>
-    </>
+    </div>
   )
 }
 
@@ -95,9 +94,11 @@ const StyledWrapper = styled.div`
 `
 
 const Actions = styled.div`
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 40px;
+  padding: 0 30px;
 `
 
 const ButtonWrapper = styled.div`

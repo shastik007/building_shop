@@ -10,7 +10,7 @@ import styled from 'styled-components'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-export default function AdminShoppCard({material}) {
+export default function AdminShoppCard({material,onDelete,onEdit}) {
   return (
     <Card sx={{ maxWidth: 345,marginBottom:4 }}>
       <CardActionArea>
@@ -42,6 +42,7 @@ export default function AdminShoppCard({material}) {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={onEdit}
             >
                 <EditIcon />
             </IconButton>
@@ -50,6 +51,7 @@ export default function AdminShoppCard({material}) {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={onDelete}
             >
                 < DeleteIcon />
             </IconButton>

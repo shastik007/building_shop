@@ -35,7 +35,7 @@ export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-                <ShoppingCartIcon />
+                <h5>{material?.price}Руб</h5>
             </IconButton>
             <StyledCounterWrapper>
             <IconButton

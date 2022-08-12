@@ -7,10 +7,14 @@ import media from '../utils/helpers/media'
 import { useDispatch } from 'react-redux'
 import { orderActions } from '../store'
 import { useSelector } from 'react-redux'
-import { getAllProducts } from '../store/productSlice'
+import { deleteProduct, getAllProducts } from '../store/productSlice'
 import Button from '../components/UI/Button'
 import AddProductModal from '../components/admin/AddProductModal'
 import AdminShoppCard from '../components/UI/AdminProducts'
+import { useSearchParams } from 'react-router-dom'
+import EditProductModal from '../components/admin/EditProducModal'
+
+
 
 
 
@@ -18,24 +22,30 @@ const AdminProducts = () => {
     const {products} = useSelector(store => store.products)
     const dispatch = useDispatch()
     const {id,category} = useParams()
+    const [,setParams] = useSearchParams()
     const [saveProduct,setSaveProduct] = useState(false)
+    const [editProduct,setEditProduct] = useState(false)
     const currentSubCategory = products.find(cat => cat.id == category)
     const Materials = currentSubCategory?.nextCategory.find(el => el.id == id)
     useEffect(() => {
         dispatch(getAllProducts())
-    })
+    },[])
 
     const toggleSave = () => setSaveProduct(prev => !prev)
+    const toggleEdit = () => setEditProduct(prev => !prev)
 
-    const addMaterial = (material) => {
-        dispatch(orderActions.addItem(material))
+    const deleteProductHandler = async (id) => {
+        console.log(id);
+       await dispatch(deleteProduct(id))
+       await dispatch(getAllProducts())
     }
-    const removeMaterial = (material) => {
-      dispatch(orderActions.removeItem(material))
+    const openUpdateProductModal = (id) => {
+      toggleEdit()
+      setParams({productId:id})
     }
 
   return (
-    <>
+    <div style={{padding:"10px"}}>
     <Actions>
         <ButtonWrapper>
             <Button onClick={toggleSave}>
@@ -45,12 +55,14 @@ const AdminProducts = () => {
     </Actions>
     <StyledWrapper>{
         Materials?.products?.map((el) => {
-            return <AdminShoppCard  material={el}/>
+            console.log(el,'element');
+            return <AdminShoppCard onEdit={() => openUpdateProductModal(el.productId)} onDelete={() => deleteProductHandler(el.productId)}  material={el}/>
         })
         }
     </StyledWrapper>
     <AddProductModal isOpen={saveProduct} onClose={toggleSave}/>
-    </>
+    <EditProductModal isOpen={editProduct} onClose={toggleEdit}/>
+    </div>
   )
 }
 
@@ -84,8 +96,10 @@ const ButtonWrapper = styled.div`
 
 
 const Actions = styled.div`
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 30px;
   margin-top: 30px;
+  margin-right: 20px;
 `

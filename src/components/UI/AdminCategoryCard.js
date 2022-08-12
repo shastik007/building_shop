@@ -25,7 +25,7 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
             {title}
           </Typography>
           <Typography onClick={() => onOpenCategory(id)} variant="body2" color="text.secondary">
-            {description}
+            {description || <StyledDiv/>}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -46,4 +46,9 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
 const StyledButtonsWrapper = styled.div`
   justify-content: flex-end;
   gap: 10px;
+`
+
+const StyledDiv = styled.div`
+  width: 100%;
+  height: 50px;
 `

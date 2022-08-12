@@ -12,6 +12,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import media from '../../utils/helpers/media';
 import OrderModal from '../../components/user/OrderModal';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 
@@ -78,6 +79,11 @@ export default function Header() {
           </Search>
         
           <Box sx={{ flexGrow: 1 }} />
+          <StyledNavBar>
+          <StyledLink to="/">Главная</StyledLink>
+            <StyledLink to="/delivery">Доставка</StyledLink>
+            <StyledLink to="/payment">Cпособ оплаты</StyledLink>
+          </StyledNavBar>
           <Box>
             <IconButton
               size="large"
@@ -96,5 +102,20 @@ export default function Header() {
     </Box>
   );
 }
+
+
+const StyledNavBar = styled('div')`
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`
+
+
+const StyledLink = styled(Link)`
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+`
 
 

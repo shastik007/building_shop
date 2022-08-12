@@ -27,6 +27,7 @@ const AddCategoryModal = ({isOpen,onClose}) => {
   const submit = async () => {
      await dispatch(saveCategory(data))
      await dispatch(getAllProducts())
+     onClose()
   }
  
 

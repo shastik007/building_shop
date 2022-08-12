@@ -7,6 +7,8 @@ import AdminLayout from '../layouts/admin_layout/AdminLayout'
 import AdminPage from '../containers/AdminPage'
 import AdminSubCategories from '../containers/AdminSubCategories'
 import AdminProducts from '../containers/AdminProducts'
+import DeliveryPage from '../containers/DeliveryPage'
+import PaymentPage from '../containers/PaymentPage'
 
 const MainRoutes = () => {
    return (
@@ -14,9 +16,16 @@ const MainRoutes = () => {
          <Route path="/" element={<UserLayout>
              <MainPage/>
          </UserLayout>}/>
-        <Route path='main/:category/*' element={
+        <Route path='/:category/*' element={
         <UserLayout>
           <SubCategoriesRoute/>
+        </UserLayout>}/>
+        <Route path="/delivery/*" element={
+        <UserLayout>
+           <DeliveryPage/>
+        </UserLayout>}/>
+        <Route path="/payment/*" element={<UserLayout>
+           <PaymentPage/>
         </UserLayout>}/>
          <Route path="admin" element={<AdminLayout><AdminPage/></AdminLayout>}/>
          <Route path="admin/:category/*" element={<AdminLayout>

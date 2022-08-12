@@ -113,7 +113,7 @@ export const deleteProduct = createAsyncThunk(
     'products/deleteProducts',
     async (id,{rejectWithValue , dispatch}) => {
         try { 
-            await deleteProductRequest(IDBOpenDBRequest)
+            await deleteProductRequest(id)
 
          } catch (error) {
             return rejectWithValue(error.message)
@@ -130,8 +130,24 @@ const productSlice = createSlice({
     reducers:{},
     extraReducers:{
         [getAllProducts.fulfilled]:(state,{payload}) => {
-            console.log(payload);
-            state.products = payload
+            const newArray = payload.map((el) => {
+                return {
+                    ...el,
+                    nextCategory: el.nextCategory.map((element) => {
+                        return {
+                            ...element,
+                            products:element.products.map((el) => {
+                                return {
+                                    ...el,
+                                    count:1,
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+
+            state.products = newArray
         },
     }
 })

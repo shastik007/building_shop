@@ -37,10 +37,10 @@ const LoginModal = ({isOpen,onClose}) => {
   }
 
 
-  const SubmitHandler = () => {
+  const SubmitHandler = async () => {
       if (userData.email && userData.password) {
         console.log('work');
-          dispatch(login(userData))
+          await dispatch(login(userData))
           onClose()
       }else{
          alert('error')

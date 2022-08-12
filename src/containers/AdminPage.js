@@ -89,13 +89,15 @@ const StyledWrapper = styled.div`
 `
 
 const StyledButtonWrapper  =  styled.div`
-  width:20%;
+  width:fit-content;
 `
 
 const Actions= styled.div`
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-top: 30px;
   margin-bottom: 30px;
+  padding: 0 30px;
 `

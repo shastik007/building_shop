@@ -2,7 +2,7 @@
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import ShoppCard from './Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import {useSelector} from 'react-redux'
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
