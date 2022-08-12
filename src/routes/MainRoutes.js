@@ -3,7 +3,8 @@ import { Route, Routes } from 'react-router'
 import UserLayout from '../layouts/user_layout/UserLayout'
 import MainPage from '../containers/MainPage'
 import SubCategoriesRoute from './SubCategoriesRoute'
-
+import AdminLayout from '../layouts/admin_layout/AdminLayout'
+import AdminPage from '../containers/AdminPage'
 
 const MainRoutes = () => {
    return (
@@ -15,7 +16,7 @@ const MainRoutes = () => {
         <UserLayout>
           <SubCategoriesRoute/>
         </UserLayout>}/>
-         <Route path="admin" element={<div>admin</div>}/>
+         <Route path="admin" element={<AdminLayout><AdminPage/></AdminLayout>}/>
       </Routes>
    )
 }
