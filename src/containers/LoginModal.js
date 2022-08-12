@@ -30,6 +30,7 @@ const LoginModal = ({isOpen,onClose}) => {
       if (userData.email && userData.password) {
         console.log('work');
           dispatch(login(userData))
+          onClose()
       }else{
          alert('error')
       }

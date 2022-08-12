@@ -27,15 +27,21 @@ const TemporaryDrawer = () => {
       setsideBarPosition({ ...sideBarPosition, [anchor]: open })
    }
 
+   const toggleModalll = () => {
+      toggleModal()
+      renderSideBarList('left',false)
+   }
+
    const renderSideBarList = (anchor) => (
       <StyledRenderSideBar anchor={anchor} role="presentation">
          <StyledList>
             {fake_categories.map((categories) => {
                return <StyledLink to={categories.category}>{categories.title}</StyledLink>
             })}
-           <Button onClick={toggleModal}>Войти</Button>
+           <Button onClick={toggleModalll}>Войти</Button>
          </StyledList>
-         <LoginModal onClose={toggleModal} isOpen={isOpenModal}/>
+         <LoginModal onClose={toggleModal}
+       isOpen={isOpenModal}/>
       </StyledRenderSideBar>
    )
 
