@@ -8,11 +8,13 @@ import Button from '../components/UI/Button'
 import AddCategoryModal from '../components/admin/AddCategoryModal'
 import AdminCategoriesCard from '../components/UI/AdminCategoryCard'
 import EditCategoryModal from '../components/admin/EditCategoryModal'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+
 
 
 const AdminPage = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [,setParams] = useSearchParams()
     const [isOpen,setIsOpen] = useState(false)
     const [isOpenEdit,setIsOpenEdit] = useState(false)
@@ -35,6 +37,10 @@ const AdminPage = () => {
         toggleEdit()
         setParams({categoryId:id})
      }
+
+     const openCategory = (categoryId) => {
+        navigate(`${categoryId}`)
+    }
   return (
     <div>
         <Actions>
@@ -44,7 +50,7 @@ const AdminPage = () => {
         </Actions>
         <StyledWrapper>
         {products.map((categor) => {
-          return <AdminCategoriesCard onEdit={() => editOpenModal(categor.id)} onDelete={deleteCategory} category={categor?.id} id={categor?.id} title={categor?.nameCategory} description={categor?.description} img={categor?.image}/>
+          return <AdminCategoriesCard onOpenCategory={openCategory} onEdit={() => editOpenModal(categor.id)} onDelete={deleteCategory} category={categor?.id} id={categor?.id} title={categor?.nameCategory} description={categor?.description} img={categor?.image}/>
         })}
     </StyledWrapper>
     <AddCategoryModal isOpen={isOpen} onClose={toggle}/>

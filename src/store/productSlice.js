@@ -1,5 +1,5 @@
 import {  createSlice ,createAsyncThunk } from '@reduxjs/toolkit'
-import { getAllProductsRequest,saveCategoryRequest ,deleteCategoryRequest ,editCategoryRequest} from '../api/productApi'
+import { getAllProductsRequest,saveCategoryRequest ,deleteCategoryRequest ,editCategoryRequest,saveSubCategoryRequest,deleteSecondCategoryRequest,editSecondCategoryRequest,saveProductRequest,editProductRequest,deleteProductRequest} from '../api/productApi'
 
 
 export const getAllProducts = createAsyncThunk(
@@ -40,10 +40,80 @@ export const editCategory = createAsyncThunk(
 export const deleteCategoryWithId = createAsyncThunk(
     'products/deleteCategory',
     async (id,{rejectWithValue , dispatch}) => {
-        try {
-           
+        try { 
             await deleteCategoryRequest(id)
-            
+
+         } catch (error) {
+            return rejectWithValue(error.message)
+         }
+    }
+)
+
+export const saveSubCategory = createAsyncThunk(
+    'products/saveSecondCategory',
+    async ({id,localData},{rejectWithValue , dispatch}) => {
+        try { 
+            await saveSubCategoryRequest(id,localData)
+
+         } catch (error) {
+            return rejectWithValue(error.message)
+         }
+    }
+)
+
+export const deleteSubCategory = createAsyncThunk(
+    'products/deleteSecondCategory',
+    async (id,{rejectWithValue , dispatch}) => {
+        try { 
+            await deleteSecondCategoryRequest(id)
+
+         } catch (error) {
+            return rejectWithValue(error.message)
+         }
+    }
+)
+
+export const editSubCategory = createAsyncThunk(
+    'products/deleteSecondCategory',
+    async ({id,localData},{rejectWithValue , dispatch}) => {
+        try { 
+            await editSecondCategoryRequest(id,localData)
+
+         } catch (error) {
+            return rejectWithValue(error.message)
+         }
+    }
+)
+
+export const saveProduct = createAsyncThunk(
+    'products/saveProducts',
+    async ({id,localData},{rejectWithValue , dispatch}) => {
+        try { 
+            await saveProductRequest(id,localData)
+
+         } catch (error) {
+            return rejectWithValue(error.message)
+         }
+    }
+)
+
+export const editProduct = createAsyncThunk(
+    'products/editProducts',
+    async ({id,localData},{rejectWithValue , dispatch}) => {
+        try { 
+            await editProductRequest(id,localData)
+
+         } catch (error) {
+            return rejectWithValue(error.message)
+         }
+    }
+)
+
+export const deleteProduct = createAsyncThunk(
+    'products/deleteProducts',
+    async (id,{rejectWithValue , dispatch}) => {
+        try { 
+            await deleteProductRequest(IDBOpenDBRequest)
 
          } catch (error) {
             return rejectWithValue(error.message)

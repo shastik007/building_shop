@@ -5,6 +5,8 @@ import MainPage from '../containers/MainPage'
 import SubCategoriesRoute from './SubCategoriesRoute'
 import AdminLayout from '../layouts/admin_layout/AdminLayout'
 import AdminPage from '../containers/AdminPage'
+import AdminSubCategories from '../containers/AdminSubCategories'
+import AdminProducts from '../containers/AdminProducts'
 
 const MainRoutes = () => {
    return (
@@ -17,6 +19,14 @@ const MainRoutes = () => {
           <SubCategoriesRoute/>
         </UserLayout>}/>
          <Route path="admin" element={<AdminLayout><AdminPage/></AdminLayout>}/>
+         <Route path="admin/:category/*" element={<AdminLayout>
+            <AdminSubCategories/>
+            </AdminLayout>}/>
+
+         <Route path="admin/:category/:id/*" element={
+         <AdminLayout>
+            <AdminProducts/>
+         </AdminLayout>}/>
       </Routes>
    )
 }
