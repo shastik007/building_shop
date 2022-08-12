@@ -6,13 +6,15 @@ import Button from '../UI/Button'
 import OrderItem from '../UI/OrderItem'
 import { useDispatch } from 'react-redux'
 import { orderActions } from '../../store'
-import OrderFormModal from './OrderFormModal'
+import SendOrderModal from '../../containers/SendOrderModal'
+
 
 
 const OrderModal = ({isOpen,onClose}) => {
   const [isOpenModal,setIsOpen] = useState(false)
   const dispatch = useDispatch()
   const { order } = useSelector(store => store.order)
+  const {token} = useSelector(store => store.auth)
   const addItem = (item) => {
     dispatch(orderActions.addItem(item))
   }
@@ -22,6 +24,14 @@ const OrderModal = ({isOpen,onClose}) => {
   }
 
   const toggleModal = () => setIsOpen(prev => !prev)
+  
+
+  const sendOrder = () => {
+      if (token) {
+        alert('working')
+      }
+      toggleModal()
+  }
 
   const isDisableButton = order.length > 0 ? false  : true
   return (
@@ -38,10 +48,10 @@ const OrderModal = ({isOpen,onClose}) => {
             <Button variant="outlined" onClick={onClose}>Отменить</Button>
           </StyledButtonWrapper>
           <StyledButtonWrapper>
-            <Button disabled={isDisableButton} onClick={toggleModal}>Заказать</Button>
+            <Button disabled={isDisableButton} onClick={sendOrder}>Заказать</Button>
           </StyledButtonWrapper>
         </ModalActionsWrapper>
-        <OrderFormModal onClose={toggleModal} isOpen={isOpenModal}/>
+        <SendOrderModal onClose={toggleModal} isOpen={isOpenModal}/>
     </Modal>
   )
 }

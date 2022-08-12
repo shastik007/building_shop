@@ -40,3 +40,7 @@ export const editProductRequest = (id,data) => {
 export const deleteProductRequest = (id) => {
     return axiosInstance.delete(`/admin/product/${id}`)
 }
+
+export const sendUserOrder = (data) => {
+    return axiosInstance.post(`/client/order/basket/{orderId}`,data)
+}

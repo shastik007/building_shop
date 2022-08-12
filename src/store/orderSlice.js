@@ -1,4 +1,20 @@
-import {  createSlice } from '@reduxjs/toolkit'
+import {  createSlice , createAsyncThunk } from '@reduxjs/toolkit'
+import { sendUserOrder } from '../api/productApi'
+
+
+
+
+export const sendOrder = createAsyncThunk(
+    'order/sendOrder',
+    async(order,{rejectWithValue}) =>{
+        try { 
+            await sendUserOrder(order)
+            alert('Заказ принят')
+         } catch (error) {
+            return rejectWithValue(error.message)
+         }
+    }
+)
 
 const initState = {
     order:[]
