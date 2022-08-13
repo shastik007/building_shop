@@ -16,6 +16,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import LogoutIcon from '@mui/icons-material/Logout';
+import {useDispatch} from 'react-redux'
+import {authActions} from '../../store/index'
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -58,6 +61,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -77,9 +82,12 @@ export default function Header() {
     handleMobileMenuClose();
   };
 
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+
+
+  const logoutHandler = () => {
+    dispatch(authActions.logout())
+    navigate('/')
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -169,6 +177,7 @@ export default function Header() {
               aria-label="show more"
               aria-haspopup="true"
               color="inherit"
+              onClick={logoutHandler}
 
             >
               <LogoutIcon />

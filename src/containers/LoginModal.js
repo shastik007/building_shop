@@ -17,13 +17,6 @@ const LoginModal = ({isOpen,onClose}) => {
       email:'',
       password:''
   })
- console.log(role,'token');
-  useEffect(() => {
-    if(role === '[ROLE_ADMIN]'){
-      console.log('navigate');
-       navigate('admin',-1)
-    }
-  },[role])
   
 
   const changeHandler = (e) => {
@@ -39,8 +32,12 @@ const LoginModal = ({isOpen,onClose}) => {
 
   const SubmitHandler = async () => {
       if (userData.email && userData.password) {
-        console.log('work');
-          await dispatch(login(userData))
+         const {data} = await dispatch(login(userData)).unwrap()
+         console.log(data,'this is auth');
+         if(data.role === '[ROLE_ADMIN]'){
+           console.log('admin');
+           navigate('admin',-1)
+        }
           onClose()
       }else{
          alert('error')

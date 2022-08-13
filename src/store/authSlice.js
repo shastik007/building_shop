@@ -19,6 +19,8 @@ export const login = createAsyncThunk(
     }
 )
 
+
+
 export const signUp = createAsyncThunk(
     'auth/signUp',
     async (loginData,{rejectWithValue}) => {
@@ -42,7 +44,15 @@ const authSlice = createSlice({
         role:'',
         token:''
     },
-    reducers:{},
+    reducers:{
+        logout:(state,actions) => {
+            localStorageHelper.delete(USER_DATA_TOKEN)
+            state = {
+                role:'',
+                token:''
+            }
+        }
+    },
     extraReducers:{
         [login.fulfilled]:(state,{payload}) => {
            state = payload
