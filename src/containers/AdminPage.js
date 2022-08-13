@@ -26,7 +26,6 @@ const AdminPage = () => {
      const toggle = () => setIsOpen(prev => !prev) 
 
      const toggleEdit = () => setIsOpenEdit(prev => !prev)
-     
      const deleteCategory  = async (id) => {
          console.log(id);
          await dispatch(deleteCategoryWithId(id))
