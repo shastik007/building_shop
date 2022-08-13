@@ -39,6 +39,11 @@ const TemporaryDrawer = () => {
             {products.map((categories) => {
                return <StyledLink to={`/${categories.id}`}>{categories.nameCategory}</StyledLink>
             })}
+            <StyledNavBar>
+          <StyledLink to="/">Главная</StyledLink>
+            <StyledLink to="/delivery">Доставка</StyledLink>
+            <StyledLink to="/payment">Cпособ оплаты</StyledLink>
+          </StyledNavBar>
             <ButtonWrapper>
             <Button onClick={toggleModalll}>Войти</Button>
             </ButtonWrapper>
@@ -94,6 +99,14 @@ const ButtonWrapper = styled.div`
   width: 60%;
   height: 40px;
 `
+const StyledNavBar = styled('div')`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+`
+
+
 
 
 

@@ -68,22 +68,8 @@ export default function Header() {
       <AppBar position="fixed">
         <Toolbar>
           <TemporaryDrawer />
-              <Search>
-            <SearchIconWrapper>
-              <SearchIcon/>
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-        
-          <Box sx={{ flexGrow: 1 }} />
-          <StyledNavBar>
-          <StyledLink to="/">Главная</StyledLink>
-            <StyledLink to="/delivery">Доставка</StyledLink>
-            <StyledLink to="/payment">Cпособ оплаты</StyledLink>
-          </StyledNavBar>
+          
+          <Box sx={{ flexGrow: 1 }}/>
           <Box>
             <IconButton
               size="large"
@@ -104,17 +90,5 @@ export default function Header() {
 }
 
 
-const StyledNavBar = styled('div')`
-  width: 30%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-`
-
-
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-`
 
 

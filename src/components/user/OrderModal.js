@@ -79,6 +79,6 @@ const ModalActionsWrapper = styled.div`
 `
 
 const StyledButtonWrapper = styled.div`
-  width: 20%;
+  width: 35%;
   margin-right: 1%;
 `
