@@ -47,18 +47,18 @@ const authSlice = createSlice({
     reducers:{
         logout:(state,actions) => {
             localStorageHelper.delete(USER_DATA_TOKEN)
-            state = {
-                role:'',
-                token:''
-            }
+            state.token = ''
+            state.role = ''
         }
     },
     extraReducers:{
         [login.fulfilled]:(state,{payload}) => {
-           state = payload
+           state.token = payload.token
+           state.role = payload.role
         },
         [signUp.fulfilled]:(state,{payload}) => {
-            state = payload
+            state.role = payload.role
+            state.token = payload.token
         }
     }  
 })

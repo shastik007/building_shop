@@ -84,9 +84,9 @@ export default function Header() {
 
 
 
-  const logoutHandler = () => {
-    dispatch(authActions.logout())
-    navigate('/')
+  const logoutHandler = async () => {
+   await dispatch(authActions.logout())
+   navigate('/',-1)
   }
 
   const menuId = 'primary-search-account-menu';

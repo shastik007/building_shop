@@ -10,13 +10,21 @@ import { useNavigate } from "react-router-dom";
 
 
 const LoginModal = ({isOpen,onClose}) => {
-  const { role } = useSelector(store => store.auth)
+  const auth = useSelector(store => store.auth)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [userData,setUserData] = useState({
       email:'',
       password:''
   })
+  
+ console.log(auth);
+  useEffect(() => {
+    if(auth.role === '[ROLE_ADMIN]'){
+      console.log('admin');
+      navigate('/admin')
+   }
+  },[auth])
   
 
   const changeHandler = (e) => {
@@ -32,13 +40,7 @@ const LoginModal = ({isOpen,onClose}) => {
 
   const SubmitHandler = async () => {
       if (userData.email && userData.password) {
-         const {data} = await dispatch(login(userData)).unwrap()
-         console.log(data,'this is auth');
-         if(data.role === '[ROLE_ADMIN]'){
-           console.log('admin');
-           navigate('admin',-1)
-        }
-          onClose()
+         await dispatch(login(userData))
       }else{
          alert('error')
       }
