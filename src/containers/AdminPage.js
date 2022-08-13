@@ -23,7 +23,8 @@ const AdminPage = () => {
         dispatch(getAllProducts())
       },[])
 
-     const toggle = () => setIsOpen(prev => !prev) 
+     const toggle = () => setIsOpen(prev => !prev)   
+    
 
      const toggleEdit = () => setIsOpenEdit(prev => !prev)
      const deleteCategory  = async (id) => {
