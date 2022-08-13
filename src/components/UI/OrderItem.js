@@ -3,6 +3,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import styled from 'styled-components'
 import { IconButton } from '@mui/material';
+import media from '../../utils/helpers/media';
 
 const OrderItem = ({count,title,onAdd,onRemove,item,price}) => {
   return (
@@ -30,17 +31,39 @@ const StyledOrderItem = styled.div`
   display: flex;
   align-self: center;
   justify-content: space-between;
+  align-items: center;
 `
 
 const CounterWrapper = styled.div`
-  width: 10%;
   display: flex;
   align-items: center;
   justify-content:space-between;
 `
 
-const Count = styled.h3``
+const Count = styled.h3`
+  ${
+   media.mobile`
+     font-size:14px;
+     margin:0;
+   `
+ }
+`
 
-const Name = styled.h2``
+const Name = styled.h2`
+ ${
+   media.mobile`
+     font-size:14px;
+     margin:0;
+     width: 30%;
+   `
+ }
+`
 
-const Price = styled.h2``
+const Price = styled.h2`
+  ${
+   media.mobile`
+     font-size:14px;
+     margin:0;
+   `
+ }
+`

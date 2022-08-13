@@ -46,7 +46,7 @@ const LoginModal = ({isOpen,onClose}) => {
       }
   }
   return (
-    <Modal width="600px" onClose={onClose} title="Войти" isOpen={isOpen}>
+    <Modal onClose={onClose} title="Войти" isOpen={isOpen}>
         <InputsWrapper>
           <Input onChange={changeHandler} value={userData.email} name="email" label="email"/>
           <Input onChange={changeHandler} value={userData.password} name="password" label="пароль"/>

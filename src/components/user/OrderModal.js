@@ -7,6 +7,7 @@ import OrderItem from '../UI/OrderItem'
 import { useDispatch } from 'react-redux'
 import { orderActions, productActons } from '../../store'
 import SendOrderModal from '../../containers/SendOrderModal'
+import media from '../../utils/helpers/media'
 
 
 
@@ -47,12 +48,11 @@ const OrderModal = ({isOpen,onClose}) => {
               <OrderItem price={el.price} onRemove={removeItem} onAdd={addItem} item={el} count={el.count} title={el.model} />
             </StyledItem>
 
-          }) : <h1>Ваша корзина пуста</h1>
+          }) : <StyledEmpty>Ваша корзина пуста</StyledEmpty>
         }
-        <h1>
-         
+        <StyledTotalSum>
         Общая сумма :   { totalSum} руб
-        </h1>
+        </StyledTotalSum>
         <ModalActionsWrapper>
         <StyledButtonWrapper>
             <Button variant="outlined" onClick={onClose}>Отменить</Button>
@@ -81,4 +81,22 @@ const ModalActionsWrapper = styled.div`
 const StyledButtonWrapper = styled.div`
   width: 35%;
   margin-right: 1%;
+`
+
+const StyledEmpty = styled.h1`
+  text-align: center;
+  ${
+    media.mobile`
+      font-size:20px;
+    `
+  }
+`
+
+const StyledTotalSum = styled.h1`
+  text-align: center;
+  ${
+    media.mobile`
+      font-size:20px;
+    `
+  }
 `
