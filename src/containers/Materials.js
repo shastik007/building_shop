@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { fake_sub_category } from '../data/fake_sub_category'
 import ShoppCard from '../components/UI/Card'
@@ -7,14 +7,16 @@ import media from '../utils/helpers/media'
 import { useDispatch } from 'react-redux'
 import { orderActions, productActons } from '../store'
 import { useSelector } from 'react-redux'
+import { getAllProducts } from '../store/productSlice'
+
 
 const Materials = () => {
     const {products} = useSelector(store => store.products)
     const {order} = useSelector(store => store.order)
     const dispatch = useDispatch()
     const {id,category} = useParams()
-    const currentSubCategory = products.find(cat => cat.id == category)
-    const Materials = currentSubCategory.nextCategory.find(el => el.id == id)
+    const currentSubCategory = products?.find(cat => cat.id == category)
+    const Materials = currentSubCategory?.nextCategory.find(el => el.id == id)
 
     const addMaterial = (material) => {
       const isFirst = order.find((product) => product.productId == material.productId)
@@ -25,10 +27,14 @@ const Materials = () => {
       dispatch(orderActions.removeItem(material))
       dispatch(productActons.decrement(material.productId))
     }
+
+    useEffect(() => {
+      dispatch(getAllProducts())
+  },[])
   return (
     <>
     <StyledWrapper>{
-        Materials.products.map((el) => {
+        Materials?.products?.map((el) => {
             return <ShoppCard onRemoveMaterial={removeMaterial} material={el} onAddMaterial={addMaterial}/>
         })
         }

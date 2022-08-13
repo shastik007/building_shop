@@ -23,7 +23,6 @@ function Modal({ children, isOpen, onClose, title ,width }) {
 
 const StyledBox = styled(Box)`
    width:${({width}) => width || '90%'};
-   max-height: 561px;
    background: #ffffff;
    position: absolute;
    left: 50%;
@@ -47,6 +46,9 @@ const ModalContent = styled(Box)`
    padding-left: 25px;
    padding-right: 25px;
    color: black;
+   max-height: 400px;
+   overflow:scroll;
+   overflow-x:hidden;
 `
 
 export default Modal

@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom';
 import { fake_categories } from '../../data/fake_data';
 import LoginModal from '../../containers/LoginModal';
 import Button from '../../components/UI/Button';
-
+import { useSelector } from 'react-redux';
 
 const TemporaryDrawer = () => {
    const [isOpenModal,setIsOpenModal] = React.useState(false)
-
+   const {products} = useSelector(store => store.products)
+   console.log(products);
    const toggleModal = () => setIsOpenModal(prev => !prev)
    const [sideBarPosition, setsideBarPosition] = React.useState({
       left: false,
@@ -35,8 +36,8 @@ const TemporaryDrawer = () => {
    const renderSideBarList = (anchor) => (
       <StyledRenderSideBar anchor={anchor} role="presentation">
          <StyledList>
-            {fake_categories.map((categories) => {
-               return <StyledLink to={categories.category}>{categories.title}</StyledLink>
+            {products.map((categories) => {
+               return <StyledLink to={`/${categories.id}`}>{categories.nameCategory}</StyledLink>
             })}
             <ButtonWrapper>
             <Button onClick={toggleModalll}>Войти</Button>
