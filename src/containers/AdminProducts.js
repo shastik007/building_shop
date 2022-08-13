@@ -30,7 +30,6 @@ const AdminProducts = () => {
     useEffect(() => {
         dispatch(getAllProducts())
     },[])
-
     const toggleSave = () => setSaveProduct(prev => !prev)
     const toggleEdit = () => setEditProduct(prev => !prev)
 
