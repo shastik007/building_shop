@@ -26,8 +26,7 @@ const orderSlice = createSlice({
     reducers:{
         addItem:(state,actions) => {
             const newMaterial = actions.payload
-            const currentMaterialIndex = state.order.findIndex(material => material.id === newMaterial.id )
-            console.log();
+            const currentMaterialIndex = state.order.findIndex(material => material.productId === newMaterial.productId )
             if(currentMaterialIndex !== -1){
              state.order[currentMaterialIndex].count = state.order[currentMaterialIndex].count + 1
             }
@@ -37,10 +36,9 @@ const orderSlice = createSlice({
         },
         removeItem:(state,actions) =>{
             const material = actions.payload
-            const currentMaterialIndex = state.order.findIndex(el => el.id === material.id )
+            const currentMaterialIndex = state.order.findIndex(el => el.productId === material.productId )
 
             if (currentMaterialIndex !== -1) {
-                console.log(state.order[currentMaterialIndex].count);
                 if(state.order[currentMaterialIndex].count >= 1){
                     state.order[currentMaterialIndex].count = state.order[currentMaterialIndex].count -1
                 }

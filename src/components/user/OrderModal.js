@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Button from '../UI/Button'
 import OrderItem from '../UI/OrderItem'
 import { useDispatch } from 'react-redux'
-import { orderActions } from '../../store'
+import { orderActions, productActons } from '../../store'
 import SendOrderModal from '../../containers/SendOrderModal'
 
 
@@ -17,10 +17,12 @@ const OrderModal = ({isOpen,onClose}) => {
   const {token} = useSelector(store => store.auth)
   const addItem = (item) => {
     dispatch(orderActions.addItem(item))
+    dispatch(productActons.increment(item.productId))
   }
 
   const removeItem = (item) => {
     dispatch(orderActions.removeItem(item))
+    dispatch(productActons.decrement(item.productId))
   }
 
   const toggleModal = () => setIsOpen(prev => !prev)
@@ -34,15 +36,23 @@ const OrderModal = ({isOpen,onClose}) => {
   }
 
   const isDisableButton = order.length > 0 ? false  : true
+
+  let totalSum = 0
   return (
     <Modal onClose={onClose} title="Корзина" isOpen={isOpen}>
         {
           order.length > 0 ? order.map((el) => {
+            {totalSum += el.price * el.count}
             return <StyledItem>
-              <OrderItem price={el.price} onRemove={removeItem} onAdd={addItem} item={el} count={el.count} title={el.title} />
+              <OrderItem price={el.price} onRemove={removeItem} onAdd={addItem} item={el} count={el.count} title={el.model} />
             </StyledItem>
+
           }) : <h1>Ваша корзина пуста</h1>
         }
+        <h1>
+         
+        Общая сумма :   { totalSum} руб
+        </h1>
         <ModalActionsWrapper>
         <StyledButtonWrapper>
             <Button variant="outlined" onClick={onClose}>Отменить</Button>

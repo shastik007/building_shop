@@ -46,7 +46,6 @@ export default function AdminShoppCard({material,onDelete,onEdit}) {
             >
                 <EditIcon />
             </IconButton>
-            <h3>{material?.count}</h3>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"

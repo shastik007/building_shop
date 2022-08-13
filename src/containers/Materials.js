@@ -5,21 +5,25 @@ import ShoppCard from '../components/UI/Card'
 import styled from 'styled-components'
 import media from '../utils/helpers/media'
 import { useDispatch } from 'react-redux'
-import { orderActions } from '../store'
+import { orderActions, productActons } from '../store'
 import { useSelector } from 'react-redux'
 
 const Materials = () => {
     const {products} = useSelector(store => store.products)
+    const {order} = useSelector(store => store.order)
     const dispatch = useDispatch()
     const {id,category} = useParams()
     const currentSubCategory = products.find(cat => cat.id == category)
     const Materials = currentSubCategory.nextCategory.find(el => el.id == id)
 
     const addMaterial = (material) => {
+      const isFirst = order.find((product) => product.productId == material.productId)
         dispatch(orderActions.addItem(material))
+        dispatch(productActons.increment({productId:material.productId,isFirst:!!isFirst}))
     }
     const removeMaterial = (material) => {
       dispatch(orderActions.removeItem(material))
+      dispatch(productActons.decrement(material.productId))
     }
   return (
     <>

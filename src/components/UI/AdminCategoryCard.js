@@ -16,16 +16,17 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
         <CardMedia
           onClick={() => onOpenCategory(category)}
           component="img"
-          height="200"
+          height="250"
           image={img}
           alt="green iguana"
+          backgroundSize="cover"
         />
         <CardContent>
           <Typography textAlign="center" onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
             {title}
           </Typography>
           <Typography onClick={() => onOpenCategory(id)} variant="body2" color="text.secondary">
-            {description || <StyledDiv/>}
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -48,7 +49,3 @@ const StyledButtonsWrapper = styled.div`
   gap: 10px;
 `
 
-const StyledDiv = styled.div`
-  width: 100%;
-  height: 50px;
-`

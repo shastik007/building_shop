@@ -113,7 +113,6 @@ const StyledNavBar = styled('div')`
 
 
 const StyledLink = styled(Link)`
-  font-size: 20px;
   color: white;
   text-decoration: none;
 `

@@ -127,7 +127,57 @@ const productSlice = createSlice({
     initialState:{
         products:[]
     },
-    reducers:{},
+    reducers:{
+        increment:(state,{payload}) => {
+            const {productId,isFirst} = payload
+            console.log(productId,isFirst);
+            const newProducts = state.products.map((category) => {
+                return {
+                    ...category,
+                    nextCategory:category.nextCategory.map((el) =>{
+                        return {
+                            ...el,
+                            products:el.products.map((item) => {
+                                if (item.productId == productId && isFirst ) {
+                                    return {
+                                        ...item,
+                                        count:item.count + 1
+                                    }
+                                }
+                                return item
+                            })
+                        }
+                    })
+                }
+            })
+            console.log(newProducts);
+           state.products = newProducts
+        },
+        decrement:(state,{payload}) => {
+            const productId = payload
+            const newProducts = state.products.map((category) => {
+                return {
+                    ...category,
+                    nextCategory:category.nextCategory.map((el) =>{
+                        return {
+                            ...el,
+                            products:el.products.map((item) => {
+                                if (item.productId == productId && item.count > 1) {
+                                    return {
+                                        ...item,
+                                        count:item.count - 1
+                                    }
+                                }
+                                return item
+                            })
+                        }
+                    })
+                }
+            })
+
+            state.products = newProducts
+        }
+    },
     extraReducers:{
         [getAllProducts.fulfilled]:(state,{payload}) => {
             const newArray = payload.map((el) => {
