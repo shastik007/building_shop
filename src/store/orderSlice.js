@@ -1,5 +1,21 @@
 import {  createSlice , createAsyncThunk } from '@reduxjs/toolkit'
-import { sendUserOrder } from '../api/productApi'
+import { sendUserOrder , getAllOrderRequest } from '../api/productApi'
+
+
+
+
+export const getAllOrder = createAsyncThunk(
+    'order/getAllOrder',
+    async(_,{rejectWithValue}) => {
+        try {
+            const {data} = await getAllOrderRequest()
+
+            return data
+        } catch (error) {
+            return rejectWithValue(error.message)
+        }
+    }
+)
 
 
 
@@ -17,7 +33,8 @@ export const sendOrder = createAsyncThunk(
 )
 
 const initState = {
-    order:[]
+    order:[],
+    adminOrder:[]
 }
 
 const orderSlice = createSlice({
@@ -52,6 +69,11 @@ const orderSlice = createSlice({
             
         }
     },
+    extraReducers:{
+        [getAllOrder.fulfilled]:(state,{payload}) => {
+            state.adminOrder = payload
+        }
+    }
  })
  
  export default orderSlice

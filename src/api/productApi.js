@@ -44,3 +44,7 @@ export const deleteProductRequest = (id) => {
 export const sendUserOrder = (data) => {
     return axiosInstance.post(`/client/order/basket/{orderId}`,data)
 }
+
+export const getAllOrderRequest = () => {
+    return axiosInstance.get('/client/order/basket/all')
+}
