@@ -11,9 +11,6 @@ const MainHeader = () => {
            строительных материалов.
           </StyledTitle>
           <StyledButtonWrapper>
-            {/* <Button>
-              Заказать товар
-            </Button> */}
           </StyledButtonWrapper>
     </StyledHeaderWrapper>
   )

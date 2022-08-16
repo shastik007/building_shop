@@ -22,23 +22,29 @@ const Slider =  () => {
       slidesPerView={1}
     >
       <SwiperSlide>
-          <StyledSlide img="https://cdn.pixabay.com/photo/2019/04/17/08/37/wood-4133620_960_720.jpg">
+          <StyledSlide img="https://kartinkin.net/uploads/posts/2022-03/1647402934_44-kartinkin-net-p-stroimateriali-kartinki-48.jpg">
               <StyledSlideText>
-                  Some Text
+                <i>
+                Для ремонта волшебство не нужно
+                </i>
               </StyledSlideText>
           </StyledSlide>
       </SwiperSlide>
       <SwiperSlide>
-          <StyledSlide img="https://cdn.pixabay.com/photo/2014/10/05/08/11/iron-rods-474792_960_720.jpg">
+          <StyledSlide img="https://kartinkin.net/uploads/posts/2022-03/thumbs/1647402898_4-kartinkin-net-p-stroimateriali-kartinki-5.jpg">
               <StyledSlideText>
-                  Some Text
+                  <i>
+                  Выгодные цены на душевные ограждения и поддоны
+                  </i>
               </StyledSlideText>
           </StyledSlide>
       </SwiperSlide>
       <SwiperSlide>
-          <StyledSlide img="https://cdn.pixabay.com/photo/2016/09/22/08/35/steel-construction-1686640_960_720.jpg">
+          <StyledSlide img="https://celes.club/uploads/posts/2022-05/thumbs/1653085537_1-celes-club-p-stroimateriali-fon-krasivie-1.jpg">
               <StyledSlideText>
-                  Some Text
+                  <i>
+                  Все для ремонта
+                  </i>
               </StyledSlideText>
           </StyledSlide>
       </SwiperSlide>
@@ -60,5 +66,38 @@ const StyledSlide = styled.div`
 `
 
 const StyledSlideText = styled.h1`
+  & i{
+    display:block;
+    text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #ffff 0%,
+    orange 29%,
+    #ffff 67%,
+    #ffff 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+ @keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+  }
+  text-align: center;
   color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  padding-top:80px;
 `
