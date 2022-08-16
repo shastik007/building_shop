@@ -31,7 +31,7 @@ const StyledBox = styled(Box)`
    color: #ffffff;
 `
 const ModalTitle = styled(Typography)`
-   background: #3772ff;
+   background: orange;
    height: 68px;
    text-align: center;
    padding-top: 25px;

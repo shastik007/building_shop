@@ -28,10 +28,11 @@ export default OrderItem
 
 const StyledOrderItem = styled.div`
   width: 100%;
-  display: flex;
-  align-self: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 0.5fr;
   align-items: center;
+  text-align: center;
+  
 `
 
 const CounterWrapper = styled.div`
@@ -50,6 +51,12 @@ const Count = styled.h3`
 `
 
 const Name = styled.h2`
+   overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    cursor: pointer;
  ${
    media.mobile`
      font-size:14px;

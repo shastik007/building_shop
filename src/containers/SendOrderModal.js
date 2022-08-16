@@ -43,7 +43,7 @@ const SendOrderModal = ({isOpen,onClose}) => {
       onClose()
     }
   return (
-    <Modal onClose={onClose} title="Быстрая регистрация" width="40%" isOpen={isOpen}>
+    <Modal onClose={onClose} title="Быстрая регистрация"  isOpen={isOpen}>
       <InputsWrapper>
          <Input value={data.fullName} name="fullName" onChange={changeHandler} label="fullName" />
        </InputsWrapper>
