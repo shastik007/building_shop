@@ -1,4 +1,4 @@
-import React , {useEffect} from 'react'
+import React , {useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { fake_sub_category } from '../data/fake_sub_category'
 import ShoppCard from '../components/UI/Card'
@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'
 import { orderActions, productActons } from '../store'
 import { useSelector } from 'react-redux'
 import { getAllProducts } from '../store/productSlice'
+import SinglePorductModal from '../components/user/SinglePorductModal'
 
 
 const Materials = () => {
@@ -17,6 +18,7 @@ const Materials = () => {
     const {id,category} = useParams()
     const currentSubCategory = products?.find(cat => cat.id == category)
     const Materials = currentSubCategory?.nextCategory.find(el => el.id == id)
+    const [singlePorduct,setSingleProduct] = useState(false)
 
     const addMaterial = (material) => {
       const isFirst = order.find((product) => product.productId == material.productId)
@@ -28,6 +30,12 @@ const Materials = () => {
       dispatch(productActons.decrement(material.productId))
     }
 
+    const openProduct = (porductData) => {
+      setSingleProduct(porductData)
+    }
+
+    const closeModal = () => setSingleProduct(false)
+
     useEffect(() => {
       dispatch(getAllProducts())
   },[])
@@ -35,9 +43,10 @@ const Materials = () => {
     <>
     <StyledWrapper>{
         Materials?.products?.map((el) => {
-            return <ShoppCard onRemoveMaterial={removeMaterial} material={el} onAddMaterial={addMaterial}/>
+            return <ShoppCard onOpenCard={openProduct} onRemoveMaterial={removeMaterial} material={el} onAddMaterial={addMaterial}/>
         })
         }
+        <SinglePorductModal onClose={closeModal} isOpen={!!singlePorduct} modalData={singlePorduct}/>
     </StyledWrapper>
     </>
   )

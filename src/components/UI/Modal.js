@@ -46,7 +46,7 @@ const ModalContent = styled(Box)`
    padding-left: 25px;
    padding-right: 25px;
    color: black;
-   max-height: 400px;
+   max-height: 500px;
    overflow:scroll;
    overflow-x:hidden;
 `
