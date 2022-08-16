@@ -64,6 +64,7 @@ export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
 
 const StyledCounterWrapper = styled.div`
   display: flex;
+  margin:0 auto;
 `
 
 const StyledActions = styled(CardActions)`

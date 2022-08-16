@@ -3,7 +3,6 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import ShoppCard from './Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {useSelector} from 'react-redux'
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -35,7 +34,7 @@ const CustomSwiper =  () => {
         // when window width is >= 640px
         640: {
           width: 640,
-          slidesPerView: 1,
+          slidesPerView: 2,
         },
         // when window width is >= 768px
         768: {

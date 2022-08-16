@@ -2,7 +2,7 @@ import { css } from 'styled-components'
 
 const sizes = {
    tablet: 870,
-   mobile: 415,
+   mobile: 500,
 }
 
 export default Object.keys(sizes).reduce((acc, label) => {
