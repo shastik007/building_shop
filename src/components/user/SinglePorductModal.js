@@ -1,16 +1,17 @@
 import Modal from "../UI/Modal";
 import React from 'react'
 import styled from 'styled-components'
-import { IconButton } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+
 
 const SinglePorductModal = ({isOpen,onClose,modalData}) => {
   return (
     <Modal title="barsBekKot" onClose={onClose} isOpen={isOpen}>
        <StyledWrapper>
-       <StyledImage src={modalData.image}/>
-       <StyledTitle>
+         <StyledImageWrapper>
+           <StyledImage image={modalData.image}/>
+         </StyledImageWrapper>
+        <StyledInformationWrapper>
+        <StyledTitle>
          {modalData.model}
        </StyledTitle>
        <StyledTitle>
@@ -19,21 +20,7 @@ const SinglePorductModal = ({isOpen,onClose,modalData}) => {
        <StyledDescription>
            {modalData.about}
        </StyledDescription> 
-       <StyledActions>
-           <StyledButtonWrapper>
-               <IconButton>
-                <RemoveIcon/>
-               </IconButton>
-           </StyledButtonWrapper>
-            <h5>
-               {modalData.count}
-            </h5>
-           <StyledButtonWrapper>
-              <IconButton>
-                <AddIcon/>
-               </IconButton>
-           </StyledButtonWrapper>
-       </StyledActions>
+        </StyledInformationWrapper>
        </StyledWrapper>
     </Modal>
   )
@@ -42,27 +29,46 @@ const SinglePorductModal = ({isOpen,onClose,modalData}) => {
 export default SinglePorductModal
 
 
-const StyledImage = styled.img`
-  width: 30%;
-  height: 5%;
-  align-self: center;
+const StyledImage = styled.div`
+  width: 100%;
+  height: 300px;
+  background-image: ${({image}) => `url(${image})`};
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 20px;
 `
 
 
-const StyledTitle = styled.h1``
+const StyledTitle = styled.h1`
+
+`
 
 
-const StyledDescription = styled.h1``
+const StyledDescription = styled.p``
 
 
 const StyledWrapper = styled.div`
    display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
+   justify-content: space-around;
+
 `
 
-const StyledButtonWrapper = styled.div``
+const StyledButtonWrapper = styled.div`
+`
 
 const StyledActions = styled.div``
 
+const StyledImageWrapper = styled.div`
+  width: 20%;
+`
+
+
+const StyledInformationWrapper = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+`

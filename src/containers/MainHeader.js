@@ -26,6 +26,29 @@ const StyledTitle = styled.h1`
   color: white;
   margin-bottom: 40px;
   text-align: center;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #ffff 0%,
+    orange 29%,
+    #ffff 67%,
+    #ffff 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+ @keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 `
 
 

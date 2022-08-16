@@ -31,7 +31,7 @@ export default Footer
 const StyledFooter = styled.footer`
   width:100%;
   height:80px;
-  background-color:#007aff;
+  background-color:orange;
   margin-top: 40px;
   position: fixed;
   bottom: 0;

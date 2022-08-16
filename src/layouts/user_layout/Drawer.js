@@ -79,13 +79,26 @@ const StyledBox = styled.div`
    margin-right: 10px;
 `
 const StyledLink = styled(Link)`
+ display: block;
  color: black;
  font-size: 16px;
- margin-bottom: 20px;
- border-bottom: 1px solid black;
+ margin-bottom: 5px;
  text-decoration: none;
  font-family: Verdana, Geneva, Tahoma, sans-serif;
  font-weight: 400;
+ background-color: orange;
+ width: 13rem;
+ height: 50px;
+ display: flex;
+ align-items: center;
+ border-radius: 0 5px 5px 0;
+ padding-left: 10px;
+ box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+  &:hover{
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
 `
 
 const StyledList = styled.ul`
