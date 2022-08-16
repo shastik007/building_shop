@@ -10,12 +10,12 @@ const Footer = () => {
       <StyledName>Stromak</StyledName>
       <StyledContactsWrapper>
       <StyledAdress>
-        город Москва , ул Хуего знает
+        Видное , 26 км Мкад Каширское шоссе , вл 32
       </StyledAdress>
-      <StyledNumber>+778 34 782 827</StyledNumber>
+      <StyledNumber>+7 977 407-70-81</StyledNumber>
       </StyledContactsWrapper>
       <StyledIconsWrapper>
-         <a href='https://api.whatsapp.com/send?phone=996557800019'>
+         <a href='https://api.whatsapp.com/send?phone=79774077081'>
            <WhatsAppIcon fontSize='large'/>
          </a>
          <a href='https://www.instagram.com/mapaevvv/'>

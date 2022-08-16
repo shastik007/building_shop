@@ -6,14 +6,14 @@ const MainHeader = () => {
   return (
     <StyledHeaderWrapper>
           <StyledTitle>
-            Большой выбор химии 
-            для натурального камня, 
-            керамогранита и плитки
+          Интернет магазин строительных материалов "Строй Смесь"
+          предлагает для своих покупателей широкий ассортимент
+           строительных материалов.
           </StyledTitle>
           <StyledButtonWrapper>
-            <Button>
+            {/* <Button>
               Заказать товар
-            </Button>
+            </Button> */}
           </StyledButtonWrapper>
     </StyledHeaderWrapper>
   )
@@ -24,7 +24,6 @@ export default MainHeader
 
 const StyledTitle = styled.h1`
   color: white;
-  text-shadow: 1px 1px black;
   margin-bottom: 40px;
   text-align: center;
 `
@@ -39,6 +38,7 @@ const StyledButtonWrapper = styled.div`
 
 
 const StyledHeaderWrapper = styled.div`
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -50,5 +50,6 @@ const StyledHeaderWrapper = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 6%;
 `
 

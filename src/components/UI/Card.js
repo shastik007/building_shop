@@ -12,7 +12,7 @@ import styled from 'styled-components'
 
 export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
   return (
-    <Card sx={{ maxWidth: 345,marginBottom:4 }}>
+    <Card sx={{ maxWidth: 345,marginBottom:4,height:650,display:'flex',flexDirection:'column',justifyContent:'space-between' }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -24,9 +24,9 @@ export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
           <Typography gutterBottom variant="h5" component="div">
             {material?.model} {material?.manufacturer}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <StyledDescriptionWrapper variant="body2" color="text.secondary">
            {material?.about}
-          </Typography>
+          </StyledDescriptionWrapper>
         </CardContent>
       </CardActionArea>
       <StyledActions>
@@ -65,9 +65,21 @@ export default function ShoppCard({onAddMaterial,material,onRemoveMaterial}) {
 const StyledCounterWrapper = styled.div`
   display: flex;
   margin:0 auto;
+  
 `
 
 const StyledActions = styled(CardActions)`
   display: flex;
   justify-content: space-between;
+  align-content: space-between;
+  align-items: baseline;
+`
+
+const StyledDescriptionWrapper = styled(Typography)`
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 10;
+   -webkit-box-orient: vertical;
+   cursor: pointer;
 `
