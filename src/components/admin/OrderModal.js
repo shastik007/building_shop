@@ -14,8 +14,40 @@ const OrderModal = ({isOpen,onClose}) => {
 
     console.log(adminOrder,'this is all order');
   return (
-    <Modal title="Все заказы" isOpen={isOpen} onClose={onClose}>OrderModal</Modal>
+    <Modal title="Все заказы" isOpen={isOpen} onClose={onClose}>
+       <StyledAdminOrder>
+         {adminOrder.map((item) => {
+           return (
+             <StyledAdminOrderItem>
+               <StyledName>
+               {item.fullName}
+               </StyledName>
+               <StyledNumber>
+                 {item.number}
+               </StyledNumber>
+             </StyledAdminOrderItem>
+           )
+         })}
+       </StyledAdminOrder>
+    </Modal>
   )
 }
 
 export default OrderModal
+
+
+const StyledAdminOrder = styled.div``
+
+const StyledAdminOrderItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const StyledName = styled.h3`
+  text-transform: uppercase;
+`
+const StyledNumber = styled.h4``
+
+
+
