@@ -9,7 +9,6 @@ const OrderItem = ({count,title,onAdd,onRemove,item,price}) => {
   return (
     <StyledOrderItem>
      <Name>{title}</Name>
-     <Price>{price * count} руб</Price>
      <CounterWrapper>
        <IconButton onClick={() => onRemove(item)}>
         <RemoveIcon/>
@@ -19,6 +18,7 @@ const OrderItem = ({count,title,onAdd,onRemove,item,price}) => {
         <AddIcon/>
        </IconButton>
      </CounterWrapper>
+     <Price>{price * count} руб</Price>
     </StyledOrderItem>
   )
 }
@@ -29,7 +29,7 @@ export default OrderItem
 const StyledOrderItem = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr 0.5fr;
+  grid-template-columns: 2fr 1fr 2fr;
   align-items: center;
   text-align: center;
   
@@ -39,9 +39,11 @@ const CounterWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content:space-between;
+  justify-content: center;
 `
 
-const Count = styled.h3`
+const Count = styled.h4`
+
   ${
    media.mobile`
      font-size:14px;
@@ -50,8 +52,10 @@ const Count = styled.h3`
  }
 `
 
-const Name = styled.h2`
-   overflow: hidden;
+const Name = styled.h4`
+    text-align: start;
+    color: blue;
+    overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -67,7 +71,7 @@ const Name = styled.h2`
  }
 `
 
-const Price = styled.h2`
+const Price = styled.h4`
   ${
    media.mobile`
      font-size:14px;

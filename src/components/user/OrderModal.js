@@ -83,7 +83,7 @@ const StyledButtonWrapper = styled.div`
   margin-right: 1%;
 `
 
-const StyledEmpty = styled.h1`
+const StyledEmpty = styled.h4`
   text-align: center;
   ${
     media.mobile`
@@ -92,8 +92,9 @@ const StyledEmpty = styled.h1`
   }
 `
 
-const StyledTotalSum = styled.h1`
-  text-align: center;
+const StyledTotalSum = styled.h4`
+  display: flex;
+  justify-content: flex-end;
   ${
     media.mobile`
       font-size:20px;

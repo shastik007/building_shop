@@ -34,10 +34,10 @@ const EditSubCategoryModal = ({isOpen,onClose}) => {
  
 
   return (
-    <Modal onClose={onClose} title="save category" isOpen={isOpen}>
+    <Modal onClose={onClose} title="Изменить подкатегорию" isOpen={isOpen}>
         <InputsWrapper>
-          <Input onChange={changeHandler} value={data.name} name="name" changeHandler label="name"/>
-          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="image"/>
+          <Input onChange={changeHandler} value={data.name} name="name" changeHandler label="название"/>
+          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="изоброжение"/>
         </InputsWrapper>
         <ModalActions>
         <ButtonWrapper>

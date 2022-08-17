@@ -10,7 +10,7 @@ const OrderModal = ({isOpen,onClose}) => {
 
     useEffect(() => {
        dispatch(getAllOrder())
-    })
+    },[])
 
     console.log(adminOrder,'this is all order');
   return (

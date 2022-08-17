@@ -46,21 +46,21 @@ const AddProductModal = ({isOpen,onClose}) => {
  
 
   return (
-    <Modal onClose={onClose} title="save product" isOpen={isOpen}>
+    <Modal onClose={onClose} title="Добавить продукт" isOpen={isOpen}>
         <InputsWrapper>
-          <Input onChange={changeHandler} value={data.manufacturer} name="manufacturer" changeHandler label="manufacturer"/>
-          <Input onChange={changeHandler} value={data.model} name="model" changeHandler label="model"/>
-          <Input type="number" onChange={changeHandler} value={data.weight} name="weight" changeHandler label="weight"/>
-          <Input type="number" onChange={changeHandler} value={data.price} name="price" changeHandler label="price"/>
-          <Input onChange={changeHandler} value={data.about} name="about" changeHandler label="about"/>
-          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="image"/>
+          <Input onChange={changeHandler} value={data.manufacturer} name="manufacturer" changeHandler label="производитель"/>
+          <Input onChange={changeHandler} value={data.model} name="model" changeHandler label="модель"/>
+          <Input type="number" onChange={changeHandler} value={data.weight} name="weight" changeHandler label="вес"/>
+          <Input type="number" onChange={changeHandler} value={data.price} name="price" changeHandler label="стоимость"/>
+          <Input onChange={changeHandler} value={data.about} name="about" changeHandler label="о продукте"/>
+          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="изоброжение"/>
         </InputsWrapper>
         <ModalActions>
         <ButtonWrapper>
-                <Button onClick={onClose}>Cancel</Button>
+                <Button onClick={onClose}>Отменить</Button>
             </ButtonWrapper>
             <ButtonWrapper>
-                <Button disabled={!data.price || !data.image || !data.model} onClick={submit}>Save</Button>
+                <Button disabled={!data.price || !data.image || !data.model} onClick={submit}>Созранить</Button>
             </ButtonWrapper>
         </ModalActions>
     </Modal>

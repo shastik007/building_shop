@@ -33,17 +33,17 @@ const EditCategoryModal = ({isOpen,onClose}) => {
  
 
   return (
-    <Modal onClose={onClose} title="save category" isOpen={isOpen}>
+    <Modal onClose={onClose} title="Изменить категорию" isOpen={isOpen}>
         <InputsWrapper>
-          <Input onChange={changeHandler} value={data.nameCategory} name="nameCategory" changeHandler label="name"/>
-          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="image"/>
+          <Input onChange={changeHandler} value={data.nameCategory} name="nameCategory" changeHandler label="Название"/>
+          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="изоброжение"/>
         </InputsWrapper>
         <ModalActions>
         <ButtonWrapper>
-                <Button onClick={onClose}>Cancel</Button>
+                <Button onClick={onClose}>Отменить</Button>
             </ButtonWrapper>
             <ButtonWrapper>
-                <Button disabled={!data.nameCategory || !data.image} onClick={submit}>Save</Button>
+                <Button disabled={!data.nameCategory || !data.image} onClick={submit}>Сохранить</Button>
             </ButtonWrapper>
         </ModalActions>
     </Modal>

@@ -11,26 +11,19 @@ import styled from 'styled-components'
 
 export default function AdminCategoriesCard({img,title,description,id,onOpenCategory,category,onDelete,onEdit}) {
   return (
-    <Card sx={{ maxWidth: 345 , height:400}}>
+    <Card sx={{ maxWidth: 345 , height:400,boxSizing:'border-box',display:'flex',flexDirection:"column",justifyContent:"space-between"}}>
       <CardActionArea>
-        <CardMedia
+        <StyledMediaCard
           onClick={() => onOpenCategory(category)}
-          component="img"
-          height="250"
           image={img}
-          alt="green iguana"
-          backgroundSize="cover"
         />
         <CardContent>
           <Typography textAlign="center" onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
             {title}
           </Typography>
-          <Typography onClick={() => onOpenCategory(id)} variant="body2" color="text.secondary">
-            {description}
-          </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <StyledCardActions>
           <StyledButtonsWrapper>
           <IconButton onClick={onEdit}>
               <EditIcon/>
@@ -39,7 +32,7 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
               <DeleteIcon/>
           </IconButton>
           </StyledButtonsWrapper>
-      </CardActions> 
+      </StyledCardActions> 
     </Card>
   );
 }
@@ -47,5 +40,21 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
 const StyledButtonsWrapper = styled.div`
   justify-content: flex-end;
   gap: 10px;
+`
+
+const StyledCardActions = styled(CardActions)`
+  width:100%;
+  height: 50px;
+`
+
+const StyledMediaCard = styled.div`
+  width: 70%;
+  height: 200px;
+  margin: 0 auto;
+  background-image: ${({image}) => `url(${image})`};
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+
 `
 

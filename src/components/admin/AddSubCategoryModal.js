@@ -32,17 +32,17 @@ const AddSubCategoryModal = ({isOpen,onClose,categoryId}) => {
  
 
   return (
-    <Modal onClose={onClose} title="save category" isOpen={isOpen}>
+    <Modal onClose={onClose} title="Создать подкатегорию" isOpen={isOpen}>
         <InputsWrapper>
-          <Input onChange={changeHandler} value={data.name} name="name" changeHandler label="name"/>
-          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="image"/>
+          <Input onChange={changeHandler} value={data.name} name="name" changeHandler label="название"/>
+          <Input onChange={changeHandler} value={data.image} name="image" changeHandler label="изоброжение"/>
         </InputsWrapper>
         <ModalActions>
         <ButtonWrapper>
-                <Button onClick={onClose}>Cancel</Button>
+                <Button onClick={onClose}>Отменить</Button>
             </ButtonWrapper>
             <ButtonWrapper>
-                <Button disabled={!data.name || !data.image} onClick={submit}>Save</Button>
+                <Button disabled={!data.name || !data.image} onClick={submit}>Сохранить</Button>
             </ButtonWrapper>
         </ModalActions>
     </Modal>

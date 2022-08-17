@@ -12,13 +12,10 @@ import EditIcon from '@mui/icons-material/Edit';
 
 export default function AdminShoppCard({material,onDelete,onEdit}) {
   return (
-    <Card sx={{ maxWidth: 345,marginBottom:4 }}>
+    <Card sx={{ maxWidth: 345,marginBottom:4,display:'flex',flexDirection:'column',justifyContent:'space-between' }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="250"
+        <StyledMediaCard
           image={material?.image}
-          alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -30,13 +27,6 @@ export default function AdminShoppCard({material,onDelete,onEdit}) {
         </CardContent>
       </CardActionArea>
       <StyledActions>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-                <ShoppingCartIcon />
-            </IconButton>
             <StyledCounterWrapper>
             <IconButton
               size="large"
@@ -66,6 +56,18 @@ const StyledCounterWrapper = styled.div`
 `
 
 const StyledActions = styled(CardActions)`
+  width:100%;
+  height: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+`
+
+const StyledMediaCard = styled.div`
+  width: 70%;
+  height: 200px;
+  margin: 0 auto;
+  background-image: ${({image}) => `url(${image})`};
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 10px;
 `
