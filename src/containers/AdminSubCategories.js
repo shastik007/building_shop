@@ -50,8 +50,8 @@ const AdminSubCategories = () => {
     <div style={{padding:'10px'}}>
       <Actions>
         <ButtonWrapper>
-           <Button onClick={toggleSave}>
-               create new Sub category
+           <Button variant="outlined" onClick={toggleSave}>
+               Создать новую под категорию
            </Button>
         </ButtonWrapper>
       </Actions>

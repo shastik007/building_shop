@@ -7,11 +7,12 @@ import { CardActionArea, CardActions, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import styled from 'styled-components'
+import media from '../../utils/helpers/media'
 
 
 export default function AdminCategoriesCard({img,title,description,id,onOpenCategory,category,onDelete,onEdit}) {
   return (
-    <Card sx={{ maxWidth: 345 , height:400,boxSizing:'border-box',display:'flex',flexDirection:"column",justifyContent:"space-between"}}>
+    <StyledCard sx={{ maxWidth: 345 , height:400,boxSizing:'border-box',display:'flex',flexDirection:"column",justifyContent:"space-between"}}>
       <CardActionArea>
         <StyledMediaCard
           onClick={() => onOpenCategory(category)}
@@ -33,7 +34,7 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
           </IconButton>
           </StyledButtonsWrapper>
       </StyledCardActions> 
-    </Card>
+    </StyledCard>
   );
 }
 
@@ -55,6 +56,23 @@ const StyledMediaCard = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: 10px;
-
+  ${
+    media.mobile`
+      width: 80%;
+      height: 200px;
+    `
+  }
 `
+const StyledCard = styled(Card)`
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease-in-out;
+  &:hover{
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
 
+  ${
+    media.mobile`
+      width:300px;
+    `
+  }
+`

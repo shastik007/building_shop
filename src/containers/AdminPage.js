@@ -45,7 +45,7 @@ const AdminPage = () => {
     <div>
         <Actions>
             <StyledButtonWrapper>
-                <Button onClick={toggle}>Create new Category</Button>
+                <Button variant="outlined" onClick={toggle}>Создать новую категорю</Button>
             </StyledButtonWrapper>
         </Actions>
         <StyledWrapper>

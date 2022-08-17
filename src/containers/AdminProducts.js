@@ -47,8 +47,8 @@ const AdminProducts = () => {
     <div style={{padding:"10px"}}>
     <Actions>
         <ButtonWrapper>
-            <Button onClick={toggleSave}>
-                create new Product
+            <Button variant="outlined" onClick={toggleSave}>
+                 Создать новый продукт
             </Button>
         </ButtonWrapper>
     </Actions>
