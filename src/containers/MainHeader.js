@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Button from '../components/UI/Button'
 import media from '../utils/helpers/media'
 
 const MainHeader = () => {
@@ -19,35 +18,10 @@ export default MainHeader
 
 
 const StyledTitle = styled.h1`
+  width: 100%;
   color: white;
   text-align: center;
   margin-bottom: 40px;
-  text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #ffff 0%,
-    orange 29%,
-    #ffff 67%,
-    #ffff 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  font-size: 18px;
-
- @keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-
-  
-}
-
 `
 
 
@@ -67,8 +41,10 @@ const StyledHeaderWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-
-  
+  ${
+    media.mobile`
+      font-size:10px;
+    `
+  }
 `
 

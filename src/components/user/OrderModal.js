@@ -97,7 +97,7 @@ const StyledTotalSum = styled.h4`
   justify-content: flex-end;
   ${
     media.mobile`
-      font-size:20px;
+      font-size:14px;
     `
   }
 `
