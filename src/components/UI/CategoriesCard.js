@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import styled from 'styled-components'
+import media from '../../utils/helpers/media';
 
 export default function CategoriesCard({img,title,description,id,onOpenCategory,category}) {
   return (
@@ -34,6 +35,12 @@ const StyledCardMedia = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   margin: 0 auto;
+  ${
+    media.mobile`
+      width: 80%;
+      height: 200px;
+    `
+  }
 `
 
 const StyledTypography = styled(Typography)`
@@ -46,5 +53,11 @@ const StyledCard = styled(Card)`
     transition: box-shadow 0.3s ease-in-out;
   &:hover{
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  ${
+    media.mobile`
+      width:300px;
+    `
   }
 `

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Button from '../components/UI/Button'
+import media from '../utils/helpers/media'
 
 const MainHeader = () => {
   return (
@@ -10,8 +11,6 @@ const MainHeader = () => {
           предлагает для своих покупателей широкий ассортимент
            строительных материалов.
           </StyledTitle>
-          <StyledButtonWrapper>
-          </StyledButtonWrapper>
     </StyledHeaderWrapper>
   )
 }
@@ -21,8 +20,8 @@ export default MainHeader
 
 const StyledTitle = styled.h1`
   color: white;
-  margin-bottom: 40px;
   text-align: center;
+  margin-bottom: 40px;
   text-transform: uppercase;
   background-image: linear-gradient(
     -225deg,
@@ -37,28 +36,27 @@ const StyledTitle = styled.h1`
   color: #fff;
   background-clip: text;
   text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
+  font-size: 18px;
+
  @keyframes textclip {
   to {
     background-position: 200% center;
   }
-}
-`
 
-
-const StyledButtonWrapper = styled.div`
-  width: 200px;
   
+}
+
 `
+
+
+
 
 
 
 
 const StyledHeaderWrapper = styled.div`
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -70,6 +68,7 @@ const StyledHeaderWrapper = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6%;
+
+  
 `
 

@@ -69,7 +69,7 @@ const ActionsWrapper = styled.div`
   justify-content: flex-end;
 `
 const ButtonWrapper = styled.div`
-  width: 20%;
+  width: 40%;
   margin-right: 2%;
 `
 

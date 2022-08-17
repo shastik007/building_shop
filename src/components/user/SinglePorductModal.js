@@ -2,12 +2,13 @@ import Modal from "../UI/Modal";
 import React from 'react'
 import styled from 'styled-components'
 import { Rating } from "@mui/material";
+import media from "../../utils/helpers/media";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 const SinglePorductModal = ({isOpen,onClose,modalData,onRemoveMaterial,onAddMaterial}) => {
   return (
-    <Modal title="barsBekKot" onClose={onClose} isOpen={isOpen}>
+    <Modal title="Продукт" onClose={onClose} isOpen={isOpen}>
        <StyledWrapper>
          <StyledImageWrapper>
            <StyledImage image={modalData.image}/>
@@ -51,6 +52,15 @@ const StyledImage = styled.div`
   background-repeat: no-repeat;
   margin: 0 auto;
   margin-top: 20px;
+
+  ${
+    media.mobile`
+      width:400px;
+      height: 200px;
+      position: relative;
+      right: 60px;
+    `
+  }
 `
 
 
@@ -65,6 +75,15 @@ const StyledDescription = styled.p``
 const StyledWrapper = styled.div`
    display: flex;
    justify-content: space-around;
+   ${
+     media.mobile`
+       flex-direction:column;
+       align-items:center;
+       justify-content:center;
+       height: 100%;
+       text-align:center;
+     `
+   }
 
 `
 
@@ -89,6 +108,11 @@ const StyledInformationWrapper = styled.div`
   flex-direction: column;
   text-align: center;
   align-items: center;
+  ${
+    media.mobile`
+     width:100%
+    `
+  }
 
 `
 

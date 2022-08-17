@@ -61,7 +61,8 @@ const Name = styled.h2`
    media.mobile`
      font-size:14px;
      margin:0;
-     width: 30%;
+     width: 100%;
+     -webkit-line-clamp: 2;
    `
  }
 `
