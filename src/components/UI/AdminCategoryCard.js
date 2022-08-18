@@ -18,6 +18,7 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
           onClick={() => onOpenCategory(category)}
           image={img}
         />
+        
         <CardContent>
           <StyledTopography textAlign="center" onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
             {title}
