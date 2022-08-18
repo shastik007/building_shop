@@ -17,11 +17,16 @@ const MainHeader = () => {
 export default MainHeader
 
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.h2`
   width: 100%;
   color: white;
   text-align: center;
   margin-bottom: 40px;
+  ${
+    media.mobile`
+      font-size:10px;
+    `
+  }
 `
 
 
