@@ -40,7 +40,7 @@ const SinglePorductModal = ({isOpen,onClose,modalData,onRemoveMaterial,onAddMate
        <Rating sx={{margin:'0px',padding:'0px'}} name="read-only" value={4} readOnly /> 
          <StyledButtonWrapper>
          <h3 style={{margin:'0px'}}>{modalData?.price}Руб</h3>
-           <StyledButton onClick={addMaterial}>
+           <StyledButton onClick={() => addMaterial(modalData)}>
              В корзину
            </StyledButton>
          </StyledButtonWrapper>

@@ -29,7 +29,7 @@ export default function CategoriesCard({img,title,description,id,onOpenCategory,
 }
 
 const StyledCardMedia = styled.div`
-  width: 60%;
+  width: 80%;
   height: 200px;
   background-image: ${({image}) => `url(${image})`};
   background-size: contain;
