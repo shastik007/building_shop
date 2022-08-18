@@ -5,8 +5,21 @@ import { Rating } from "@mui/material";
 import media from "../../utils/helpers/media";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { useDispatch , useSelector } from 'react-redux'
+import { orderActions , productActons } from '../../store/index'
+
 
 const SinglePorductModal = ({isOpen,onClose,modalData,onRemoveMaterial,onAddMaterial}) => {
+  const dispatch = useDispatch()
+  const { order } = useSelector(store => store.order)
+
+  const addMaterial = (material) => {
+    const isFirst = order.find((product) => product.productId == material.productId)
+      dispatch(orderActions.addItem(material))
+      dispatch(productActons.increment({productId:material.productId,isFirst:!!isFirst}))
+  }
+
+
   return (
     <Modal title="Продукт" onClose={onClose} isOpen={isOpen}>
        <StyledWrapper>
@@ -27,7 +40,7 @@ const SinglePorductModal = ({isOpen,onClose,modalData,onRemoveMaterial,onAddMate
        <Rating sx={{margin:'0px',padding:'0px'}} name="read-only" value={4} readOnly /> 
          <StyledButtonWrapper>
          <h3 style={{margin:'0px'}}>{modalData?.price}Руб</h3>
-           <StyledButton>
+           <StyledButton onClick={addMaterial}>
              В корзину
            </StyledButton>
          </StyledButtonWrapper>

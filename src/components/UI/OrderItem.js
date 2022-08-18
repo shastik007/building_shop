@@ -32,7 +32,7 @@ const StyledOrderItem = styled.div`
   grid-template-columns: 2fr 1fr 2fr;
   align-items: center;
   text-align: center;
-  
+  border-bottom: 1px solid gray;
 `
 
 const CounterWrapper = styled.div`

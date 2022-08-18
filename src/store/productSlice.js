@@ -162,7 +162,7 @@ const productSlice = createSlice({
                         return {
                             ...el,
                             products:el.products.map((item) => {
-                                if (item.productId == productId && item.count > 1) {
+                                if (item.productId == productId && item.count > 0) {
                                     return {
                                         ...item,
                                         count:item.count - 1
@@ -189,7 +189,7 @@ const productSlice = createSlice({
                             products:element.products.map((el) => {
                                 return {
                                     ...el,
-                                    count:1,
+                                    count:0,
                                 }
                             })
                         }

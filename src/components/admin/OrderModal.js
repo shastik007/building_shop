@@ -3,8 +3,10 @@ import Modal from '../UI/Modal'
 import styled from 'styled-components'
 import { useSelector ,useDispatch} from 'react-redux'
 import { getAllOrder } from '../../store/orderSlice'
+import { useNavigate } from 'react-router-dom'
 
 const OrderModal = ({isOpen,onClose}) => {
+    const navigate =  useNavigate()
     const dispatch = useDispatch()
     const { adminOrder } = useSelector(store => store.order)
 
@@ -12,13 +14,18 @@ const OrderModal = ({isOpen,onClose}) => {
        dispatch(getAllOrder())
     },[])
 
+    const openBasket = (basketId) => {
+        navigate(`/admin/order/${basketId}`)
+        onClose()
+    }
+
     console.log(adminOrder,'this is all order');
   return (
     <Modal title="Все заказы" isOpen={isOpen} onClose={onClose}>
        <StyledAdminOrder>
          {adminOrder.map((item) => {
            return (
-             <StyledAdminOrderItem>
+             <StyledAdminOrderItem onClick={() => { openBasket(item.basketId)}}>
                <StyledName>
                {item.fullName}
                </StyledName>
@@ -42,6 +49,8 @@ const StyledAdminOrderItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid gray;
+
 `
 
 const StyledName = styled.h3`

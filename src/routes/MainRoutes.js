@@ -9,6 +9,7 @@ import AdminSubCategories from '../containers/AdminSubCategories'
 import AdminProducts from '../containers/AdminProducts'
 import DeliveryPage from '../containers/DeliveryPage'
 import PaymentPage from '../containers/PaymentPage'
+import AdminOrderPage from '../containers/AdminOrderPage'
 
 const MainRoutes = () => {
    return (
@@ -36,6 +37,11 @@ const MainRoutes = () => {
          <AdminLayout>
             <AdminProducts/>
          </AdminLayout>}/>
+         <Route path="admin/order/:orderId/*" element={
+            <AdminLayout>
+            <AdminOrderPage/>
+         </AdminLayout>
+         }/>
       </Routes>
    )
 }
