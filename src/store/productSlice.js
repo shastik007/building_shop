@@ -138,7 +138,7 @@ const productSlice = createSlice({
                         return {
                             ...el,
                             products:el.products.map((item) => {
-                                if (item.productId == productId && isFirst ) {
+                                if (item.productId == productId ) {
                                     return {
                                         ...item,
                                         count:item.count + 1
@@ -150,7 +150,6 @@ const productSlice = createSlice({
                     })
                 }
             })
-            console.log(newProducts);
            state.products = newProducts
         },
         decrement:(state,{payload}) => {

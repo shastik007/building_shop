@@ -48,7 +48,10 @@ const orderSlice = createSlice({
              state.order[currentMaterialIndex].count = state.order[currentMaterialIndex].count + 1
             }
             if (currentMaterialIndex === -1) {
-                state.order.push(newMaterial)
+                state.order.push({
+                    ...newMaterial,
+                    count:1,
+                })
             }
         },
         removeItem:(state,actions) =>{
@@ -56,7 +59,7 @@ const orderSlice = createSlice({
             const currentMaterialIndex = state.order.findIndex(el => el.productId === material.productId )
 
             if (currentMaterialIndex !== -1) {
-                if(state.order[currentMaterialIndex].count >= 1){
+                if(state.order[currentMaterialIndex].count >= 0){
                     state.order[currentMaterialIndex].count = state.order[currentMaterialIndex].count -1
                 }
                
