@@ -133,7 +133,7 @@ export default function Header() {
             noWrap
             component="div"
           >
-            STROMAK
+           X-STROY
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />

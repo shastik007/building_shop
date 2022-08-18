@@ -7,7 +7,7 @@ import media from '../../utils/helpers/media'
 const Footer = () => {
   return (
     <StyledFooter>
-      <StyledName>Stromak</StyledName>
+      <StyledName>STROY</StyledName>
       <StyledContactsWrapper>
       <StyledAdress>
         Видное , 26 км Мкад Каширское шоссе , вл 32

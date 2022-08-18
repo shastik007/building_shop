@@ -44,13 +44,6 @@ const StyledCardMedia = styled.div`
 const StyledTypography = styled(Typography)`
   text-align: center;
   text-transform:lowercase;
-  overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    cursor: pointer;
-    background-color: orange;
 
 `
 

@@ -32,9 +32,9 @@ export default function ShoppCard({onAddMaterial,material,onRemoveMaterial,onOpe
             <StyledCounterWrapper>
             <h3 style={{margin:'0px'}}>{material?.price}Руб</h3>
               <StyledCounter>
-               <RemoveIcon onClick={() => onRemoveMaterial(material)} />
+               <RemoveIcon cursor="pointer" onClick={() => onRemoveMaterial(material)} />
                    <h3>{material?.count}</h3>
-                <AddIcon   onClick={() => onAddMaterial(material)}/>
+                <AddIcon cursor="pointer"   onClick={() => onAddMaterial(material)}/>
               </StyledCounter>
             </StyledCounterWrapper>
             

@@ -45,10 +45,10 @@ const SendOrderModal = ({isOpen,onClose}) => {
   return (
     <Modal onClose={onClose} title="Обратная связь"  isOpen={isOpen}>
       <InputsWrapper>
-         <Input value={data.fullName} name="fullName" onChange={changeHandler} label="fullName" />
+         <Input value={data.fullName} name="ФИО" onChange={changeHandler} label="fullName" />
        </InputsWrapper>
        <InputsWrapper>
-         <Input value={data.phoneNumber} name="phoneNumber" onChange={changeHandler} label="phoneNumber"/>
+         <Input value={data.phoneNumber} name="номер" onChange={changeHandler} label="phoneNumber"/>
        </InputsWrapper> 
        <ActionsWrapper>
            <ButtonWrapper>
