@@ -19,9 +19,9 @@ export default function AdminCategoriesCard({img,title,description,id,onOpenCate
           image={img}
         />
         <CardContent>
-          <Typography textAlign="center" onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
+          <StyledTopography textAlign="center" onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
             {title}
-          </Typography>
+          </StyledTopography>
         </CardContent>
       </CardActionArea>
       <StyledCardActions>
@@ -75,4 +75,14 @@ const StyledCard = styled(Card)`
       width:300px;
     `
   }
+`
+
+const StyledTopography = styled(Typography)`
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    cursor: pointer;
+    background-color: orange;
 `

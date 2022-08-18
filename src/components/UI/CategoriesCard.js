@@ -9,7 +9,7 @@ import media from '../../utils/helpers/media';
 
 export default function CategoriesCard({img,title,description,id,onOpenCategory,category}) {
   return (
-    <StyledCard sx={{ maxWidth: 345 , height:330}}>
+    <StyledCard sx={{ maxWidth: 345 , height:300}}>
       <CardActionArea>
         <StyledCardMedia
           onClick={() => onOpenCategory(category)}
@@ -19,9 +19,6 @@ export default function CategoriesCard({img,title,description,id,onOpenCategory,
           <StyledTypography textAlign="center" onClick={() => onOpenCategory(id)} gutterBottom variant="h5" component="div">
             {title}
           </StyledTypography>
-          <Typography onClick={() => onOpenCategory(id)} variant="body2" color="text.secondary">
-            {description}
-          </Typography>
         </CardContent>
       </CardActionArea>
     </StyledCard>
@@ -29,12 +26,13 @@ export default function CategoriesCard({img,title,description,id,onOpenCategory,
 }
 
 const StyledCardMedia = styled.div`
-  width: 80%;
+  width: 70%;
   height: 200px;
   background-image: ${({image}) => `url(${image})`};
   background-size: contain;
   background-repeat: no-repeat;
   margin: 0 auto;
+  margin-top: 20px;
   ${
     media.mobile`
       width: 80%;
@@ -46,6 +44,14 @@ const StyledCardMedia = styled.div`
 const StyledTypography = styled(Typography)`
   text-align: center;
   text-transform:lowercase;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    cursor: pointer;
+    background-color: orange;
+
 `
 
 const StyledCard = styled(Card)`
