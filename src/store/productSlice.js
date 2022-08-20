@@ -1,5 +1,5 @@
 import {  createSlice ,createAsyncThunk } from '@reduxjs/toolkit'
-import { getAllProductsRequest,saveCategoryRequest ,deleteCategoryRequest ,editCategoryRequest,saveSubCategoryRequest,deleteSecondCategoryRequest,editSecondCategoryRequest,saveProductRequest,editProductRequest,deleteProductRequest} from '../api/productApi'
+import { getAllProductsRequest,saveCategoryRequest ,deleteCategoryRequest ,editCategoryRequest,saveSubCategoryRequest,deleteSecondCategoryRequest,editSecondCategoryRequest,saveProductRequest,editProductRequest,deleteProductRequest,searchProductsRequest} from '../api/productApi'
 
 
 export const getAllProducts = createAsyncThunk(
@@ -122,10 +122,28 @@ export const deleteProduct = createAsyncThunk(
 )
 
 
+export const searchProduct = createAsyncThunk(
+    'product/searchProducts',
+    async(params,{rejectWithValue}) => {
+        try{
+            if(params.model){
+                const { data } = await searchProductsRequest(params)
+                return data
+            }
+            return []
+        }catch(error){
+            return rejectWithValue(error)
+        }
+    }
+)
+
+
 const productSlice = createSlice({
     name:'products',
     initialState:{
-        products:[]
+        products:[],
+        searchProducts:[],
+        findedProduct:null
     },
     reducers:{
         increment:(state,{payload}) => {
@@ -198,6 +216,9 @@ const productSlice = createSlice({
 
             state.products = newArray
         },
+        [searchProduct.fulfilled]:(state,{payload}) => {
+            state.searchProducts = payload
+        }
     }
 })
 

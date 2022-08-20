@@ -9,7 +9,7 @@ import { useDispatch , useSelector } from 'react-redux'
 import { orderActions , productActons } from '../../store/index'
 
 
-const SinglePorductModal = ({isOpen,onClose,modalData,onRemoveMaterial,onAddMaterial}) => {
+const SinglePorductModal = ({isOpen,onClose,modalData}) => {
   const dispatch = useDispatch()
   const { order } = useSelector(store => store.order)
 
@@ -24,17 +24,17 @@ const SinglePorductModal = ({isOpen,onClose,modalData,onRemoveMaterial,onAddMate
     <Modal title="Продукт" onClose={onClose} isOpen={isOpen}>
        <StyledWrapper>
          <StyledImageWrapper>
-           <StyledImage image={modalData.image}/>
+           <StyledImage image={modalData?.image}/>
          </StyledImageWrapper>
         <StyledInformationWrapper>
         <StyledTitle>
-         {modalData.model}
+         {modalData?.model}
        </StyledTitle>
        <StyledTitle>
-         {modalData.manufacter}
+         {modalData?.manufacter}
        </StyledTitle>
        <StyledDescription>
-           {modalData.about}
+           {modalData?.about}
        </StyledDescription> 
        <StyledActions>
        <Rating sx={{margin:'0px',padding:'0px'}} name="read-only" value={4} readOnly /> 

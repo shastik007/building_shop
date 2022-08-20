@@ -13,7 +13,7 @@ import media from '../../utils/helpers/media';
 import OrderModal from '../../components/user/OrderModal';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import SearchInput from './SearchInput';
 
 
 
@@ -30,8 +30,8 @@ export default function Header() {
       <AppBar sx={{backgroundColor:'orange'}} position="fixed">
         <Toolbar>
           <TemporaryDrawer />
-          
           <Box sx={{ flexGrow: 1 }}/>
+          <SearchInput/>
           <Box>
             <IconButton
               size="large"

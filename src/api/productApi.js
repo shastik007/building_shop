@@ -48,3 +48,9 @@ export const sendUserOrder = (data) => {
 export const getAllOrderRequest = () => {
     return axiosInstance.get('/client/order/basket/all')
 }
+
+export const  searchProductsRequest = (params) => {
+    return axiosInstance.get('/client/products/search',{
+        params
+    })
+}
