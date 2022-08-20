@@ -44,7 +44,7 @@ const StyledFooter = styled.footer`
 const StyledName = styled.h1`
  margin-left: 30px;
  color: white;
- width: 7%;
+ width: 15%;
  ${
     media.mobile`
      font-size:16px;
@@ -53,7 +53,7 @@ const StyledName = styled.h1`
 `
 
 const StyledContactsWrapper = styled.div`
-  width: 40%;
+  width: 30%;
   color: white;
   & a{
     text-decoration: none;

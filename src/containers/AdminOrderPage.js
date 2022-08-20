@@ -16,7 +16,7 @@ const AdminOrderPage = () => {
         <StyledNumber>{currentOrder?.number}</StyledNumber>
         <StyledOrder>
           {currentOrder?.productCards.map((product) => {
-             totalSum +=product.productId.price
+             totalSum += product.productId.price * product.count
             return (
               <StyledOrderItems>
                 <StyledMedia image={product.productId.image}/>

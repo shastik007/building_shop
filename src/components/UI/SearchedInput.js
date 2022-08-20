@@ -15,9 +15,8 @@ export default SearchedInput
 const StyledSearchedItem = styled.div`
   width:100%;
   height:50px;
-  border-radius: 5px;
   color: gray;
-  border: 1px solid gray;
+  border-bottom: 1px solid gray;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -25,4 +24,7 @@ const StyledSearchedItem = styled.div`
   -webkit-box-orient: vertical;
   cursor: pointer;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  padding:5px;
 `

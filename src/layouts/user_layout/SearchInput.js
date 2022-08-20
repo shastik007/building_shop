@@ -28,6 +28,9 @@ export default function SearchInput() {
 
     const openProductModal = (product) => {
         setProduct(product)
+        dispatch(searchProduct({
+            model:'',
+        }))
     }
 
     const closeModal = () => setProduct(null)
@@ -63,8 +66,10 @@ export default function SearchInput() {
 const StyledFindedWrapper = styled.div`
   position:fixed;
   background-color: white;
-  width: 230px;
+  width: 245px;
   border-radius:0 0 5px 5px ;
   max-height: 400px;
   overflow-y: scroll;
+  overflow-x: hidden;
+  
 `
