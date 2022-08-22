@@ -60,7 +60,7 @@ const AddProductModal = ({isOpen,onClose}) => {
                 <Button onClick={onClose}>Отменить</Button>
             </ButtonWrapper>
             <ButtonWrapper>
-                <Button disabled={!data.price || !data.image || !data.model} onClick={submit}>Созранить</Button>
+                <Button disabled={!data.price || !data.image || !data.model} onClick={submit}>Сохранить</Button>
             </ButtonWrapper>
         </ModalActions>
     </Modal>
